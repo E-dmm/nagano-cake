@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+    get 'homes/top'
+    get 'homes/about'
     resources :homes
     resources :products
     resources :customers
