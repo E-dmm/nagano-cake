@@ -25,9 +25,9 @@ Rails.application.routes.draw do
     resources :orders
     resources :order_details
   end
-  
+  root to: 'public/homes#top'
   namespace :public do
-    get 'homes/top'
+    # get 'homes/top'
     get 'homes/about'
     resources :homes
     resources :products
