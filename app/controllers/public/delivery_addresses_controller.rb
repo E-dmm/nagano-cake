@@ -6,7 +6,7 @@ class Public::DeliveryAddressesController < ApplicationController
   
   
   def create
-    @delivery_address = @delivery_address.new
+    @delivery_address = DeliveryAddress.new(delivery_address_params)
     @delivery_address.save
     redirect_to public_delivery_addresses_path
   end
@@ -30,6 +30,7 @@ class Public::DeliveryAddressesController < ApplicationController
   private
   
   def delivery_address_params
-    params.require(:delivery_address).permit(:postcode, :address, :name)
+    params.permit(:postcode, :address, :name)
+    #エラーが起きたためrequire消しました
   end
 end
