@@ -2,9 +2,7 @@ class ApplicationController < ActionController::Base
 
   # current_user.admin?
   # before_action :authenticate_admin!,except: [:top]
-  # before_action :configure_permitted_parameters, if: :devise_controller?
-
-  protected
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
     admin_orders_path
@@ -14,8 +12,12 @@ class ApplicationController < ActionController::Base
     admins_sign_in_path
   end
 
+
+  protected
+
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys[:email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 
 end

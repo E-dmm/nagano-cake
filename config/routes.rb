@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins, skip: :all
   devise_scope :admin do
-    get 'admins/sign_in' => 'admins/sessions#new'
+    get 'admin/sign_in' => 'admin/sessions#new'
     post 'admins/sign_in' => 'admins/sessions#create'
     delete 'admins/sign_out' => 'admins/sessions#destroy'
   end
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :sessions
     resources :homes
     resources :products
     resources :genres
