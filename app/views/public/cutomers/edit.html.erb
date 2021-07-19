@@ -1,5 +1,5 @@
 <div class="col-md-10 offset-md-1">
-    <h2>新規会員登録</h2>
+    <h2>会員情報編集</h2>
     <%= form_with model: @customer, url: customers_sign_up_path,local: true do |f| %>
     <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "customers/shared/error_messages", resource: resource %>
@@ -24,11 +24,6 @@
         <%= f.label :first_name_kana, "(メイ)" %><br />
         <%= f.text_field :name, autofocus: true %>
       </div>
-    
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
       
       <div class="field">
         <%= f.label :postcode, "郵便番号（ハイフンなし）" %><br />
@@ -45,26 +40,15 @@
         <%= f.text_field :name, autofocus: true %>
       </div>
     
-      <div class="field">
-        <%= f.label :password, "パスワード（6文字以上）" %>
-        <% if @minimum_password_length %>
-        <!--<em>(<%#= @minimum_password_length %> characters minimum)</em>-->
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+    <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
     
-      <div class="field">
-        <%= f.label :password_confirmation, "パスワード（確認用）" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
     
       <div class="actions">
-        <%= f.submit "Sign up", class: 'btn btn-success' %>
+        <%= f.submit "編集内容を保存", class: 'btn btn-success' %>
+        <%= link_to '退会する' class: "btn btn-danger"%>
       </div>
     <% end %>
-    <div>すでに登録済みの方</div>
-    <div>
-      <%= link_to "こちら", customers_sign_in_path %>からログインしてください
-    </div>
 </div>
-<%#= render "customers/shared/links" %>
