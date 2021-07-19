@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations',
     sessions: 'customers/sessions'
   }
-  
+
   devise_for :admins
   devise_scope :admin do
     get 'admin/sign_in' => 'admin/sessions#new'
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     delete 'admins/sign_out' => 'admins/sessions#destroy'
   end
 
-  
-  
+
+
 
   namespace :admin do
     resources :homes

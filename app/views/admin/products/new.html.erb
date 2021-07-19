@@ -27,9 +27,9 @@
           <td><%= f.label :販売ステータス %></td>
           <td>
             <%= f.label :is_active_draft, '販売中' %>
-            <%= f.radio_button :is_active, :draft %>
+            <%= f.radio_button :is_active, :販売中 %>
             <%= f.label :is_active_on_sale, '販売停止中' %>
-            <%= f.radio_button :is_active, :on_sale %>
+            <%= f.radio_button :is_active, :販売停止中 %>
           </td>
         </tr>
       </tbody>
