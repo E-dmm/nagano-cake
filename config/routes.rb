@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :products
     resources :customers
     resources :cart_products
+    resources :genres
     resources :orders
     resources :delivery_addresses
   end
