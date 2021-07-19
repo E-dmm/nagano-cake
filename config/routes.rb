@@ -1,20 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :admins, skip: :all
+  devise_for :customers, controllers: {
+    registrations: 'customers/registrations',
+    sessions: 'customers/sessions'
+  }
+  
+  devise_for :admins
   devise_scope :admin do
     get 'admin/sign_in' => 'admin/sessions#new'
     post 'admins/sign_in' => 'admins/sessions#create'
     delete 'admins/sign_out' => 'admins/sessions#destroy'
   end
 
-  devise_for :customers, skip: :all
-  devise_scope :customer do
-    get 'customers/sign_in' => 'customers/sessions#new'
-    post 'customers/sign_in' => 'customers/sessions#create'
-    delete 'customers/sign_out' => 'customers/sessions#destroy'
-    get 'customers/sign_up' => 'customers/registrations#new'
-    post 'customers' => 'customers/registrations#create'
-    get 'customers/password/new' => 'customers/passwords#new'
-  end
+  
+  
 
   namespace :admin do
     resources :homes
