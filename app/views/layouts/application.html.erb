@@ -12,14 +12,13 @@ taro
 
   <body>
     <header>
-
       <nav>
         <ul>
           <% if customer_signed_in? %>
-            <li><%= link_to "マイページ", public_customer_path %></li>
+            <li><%= link_to "マイページ", public_customer_path(current_customer) %></li>
             <li><%= link_to "商品一覧", public_products_path %></li> 
             <li><%= link_to "カート", public_cart_products_path %></li>
-            <li><%= link_to "ログアウト", root_path %></li> 
+            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li> 
           <% elsif  admin_signed_in? %>
             <li><%= link_to "商品一覧", admin_products_path %></li>
             <li><%= link_to "会員一覧", admin_customers_path %></li> 
@@ -30,7 +29,7 @@ taro
             <li><%= link_to "About", public_homes_about_path %></li>
             <li><%= link_to "商品一覧", admin_products_path %></li>
             <li><%= link_to "新規登録", new_public_customer_path %></li> 
-            <li><%= link_to "ログイン", customers_sign_in_path %></li>
+            <li><%= link_to "ログイン", new_customer_session_path %></li>
            <% end %>
         </ul>
       </nav>
