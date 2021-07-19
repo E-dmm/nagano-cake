@@ -6,7 +6,7 @@
       <th>会員ID</th>
       <td><%= @customer.id %></td>
     </tr>
-    
+
     <%= form_with model:@custemer, url: admin_customer_path, local:true do |f| %>
     <tr>
       <th>氏名</th>
@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <th>会員ステータス</th>
-      <td>  
+      <td>
         <%= f.label :is_delete, '有効', value: 1 %>
         <%= f.radio_button :is_delete, "1" %>
         <%= f.label :is_delete, '退会', value: 0 %>
