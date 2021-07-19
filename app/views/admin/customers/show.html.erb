@@ -1,1 +1,38 @@
-<h2>さんの会員詳細</h2>
+<h2>▲▲さんの会員詳細</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th>会員ID</th>
+      <td><%= @customer.id %></td>
+    </tr>
+    <tr>
+      <th>氏名</th>
+      <td><%= @custemer.last_name %> <%= @custemer.first_name %></td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <td><%= @custemer.last_name_kana %> <%= @custemer.first_name_kana %></td>
+    </tr>
+    <tr>
+      <th>郵便番号</th>
+      <td><%= @custemer.postcode %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @custemer.address %></td>
+    </tr>
+      <tr>
+      <th>電話番号</th>
+      <td><%= @custemer.phone_number %></td>
+    </tr>
+      <tr>
+      <th>メールアドレス</th>
+      <td><%= @custemer.email %></td>
+    </tr>
+    <tr>
+      <th>会員ステータス</th>
+      <td><%= @custemer.is_delete %></td>
+    </tr>
+  </tbody>
+</table>

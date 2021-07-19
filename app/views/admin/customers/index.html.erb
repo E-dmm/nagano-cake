@@ -13,12 +13,12 @@
       <% @customers.each do |customer| %>
       <tr>
         <td><%= custemer.id %></td>
-        <td><%= custemer.last_name %></td>
-        <td><%= custemer.first_name %></td>
+        <td><%= custemer.last_name %> <%= custemer.first_name %></td>
         <td><%= custemer.emai %></td>
         <td><%= is_delete %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <%= paginate @customers %>
 </div>
