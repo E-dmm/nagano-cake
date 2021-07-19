@@ -30,10 +30,10 @@
           <td><%= delivery_address.address %></td>
           <td><%= delivery_address.name %></td>
           <td>
-            <%# if customers_sign_in_path && current_customer.id == delivery_address.customer_id %>
-              <%#= link_to "編集", edit_public_delivery_address_path, class:"p-3 mb-2 bg-success text-white" %>
-              <%#= link_to "削除", public_delivery_address_path, method: :delete, data: {confirm: "削除しますか？"}, class:"p-3 mb-2 bg-danger text-white" %>
-            <%# end %>
+            <% if customers_sign_in_path && current_customer.id == delivery_address.customer_id %>
+              <%= link_to "編集", edit_public_delivery_address_path, class:"p-3 mb-2 bg-success text-white" %>
+              <%= link_to "削除", public_delivery_address_path, method: :delete, data: {confirm: "削除しますか？"}, class:"p-3 mb-2 bg-danger text-white" %>
+            <% end %>
           </td>
         </tr>
         <% end %>

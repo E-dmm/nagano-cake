@@ -2,7 +2,7 @@
   <h2 class="m-4">ログイン</h2>
   
   <div class="m-4">会員の方はこちらからログイン</div>
-  <%= form_with model: @customer, url: customers_sign_in_path,local: true do |f| %>
+  <%= form_with model: @customer, url: customer_session_path,local: true do |f| %>
   <%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field text-center">
       <%= f.label :email, 'メールアドレス', class: "mr-5" %>
@@ -28,7 +28,7 @@
   
   <div>会員登録がお済みでない方</div>
   <div class="text-center">
-  <%= link_to "こちら", customers_sign_up_path %> から新規登録を行ってください。
+  <%#= link_to "こちら", customers_sign_up_path %> から新規登録を行ってください。
   </div>
 </div>
 <%#= render "customers/shared/links" %>
