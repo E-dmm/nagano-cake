@@ -7,7 +7,7 @@
       <td><%= @customer.id %></td>
     </tr>
 
-    <%= form_with model:@custemer, url: admin_customer_path, local:true do |f| %>
+    <%= form_with model:@custemer, url: admin_customer_path(@custemer.id), local:true do |f| %>
     <tr>
       <th>氏名</th>
       <td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td>
