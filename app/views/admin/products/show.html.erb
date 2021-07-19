@@ -1,6 +1,6 @@
 <div class="row">
   <h2>商品詳細</h2>
-  <%#= attchment_image_tag @product %>
+  <%= attachment_image_tag @product, :image, size: "100x100" %>
   <table class="table">
     <tbody>
       <tr>
@@ -17,7 +17,7 @@
       </tr>
       <tr>
         <td>税込価格(税抜価格)</td>
-        <td><%= @product.price*1.1 %>(<%= @product.price %>)円</td>
+        <td><%= @product.add_tax_price.to_s(:delimited) %>(<%= @product.price %>)円</td>
       </tr>
       <tr>
         <td>販売ステータス</td>

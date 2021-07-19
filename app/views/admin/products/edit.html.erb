@@ -5,7 +5,7 @@
       <tbody>
         <tr>
           <td><%= f.label :商品画像 %></td>
-          <td><%= f.attachment_field :image_id, class: 'form-control-file' %></td>
+          <td><%= f.attachment_field :image, class: 'form-control-file' %></td>
         </tr>
         <tr>
           <td><%= f.label :商品名 %></td>
@@ -25,7 +25,12 @@
         </tr>
         <tr>
           <td><%= f.label :販売ステータス %></td>
-          <td><%= f.select :is_active, [["販売中", true], ["販売停止中", false]] %></td>
+          <td>
+            <%= f.label :is_active_draft, '販売中' %>
+            <%= f.radio_button :is_active, :draft %>
+            <%= f.label :is_active_on_sale, '販売停止中' %>
+            <%= f.radio_button :is_active, :on_sale %>
+          </td>
         </tr>
       </tbody>
     </table>
