@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     post 'customers/sign_in' => 'customers/sessions#create'
     delete 'customers/sign_out' => 'customers/sessions#destroy'
     get 'customers/sign_up' => 'customers/registrations#new'
-    post 'customers' => 'customers/registrations#create'
+    post 'customers/sign_up' => 'customers/registrations#create'
     get 'customers/password/new' => 'customers/passwords#new'
   end
 
