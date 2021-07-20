@@ -9,6 +9,8 @@ class Public::OrdersController < ApplicationController
     @order_day = @customer.created_order
     @delivery_address = DelivertAddress.find(params[:delivery_address_id])
   end
+  
+  
   # before_action :authenticate_customer!
 
   def new
