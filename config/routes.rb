@@ -3,12 +3,14 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations',
     sessions: 'customers/sessions'
   }
+
   
     devise_for :admins, controllers: {
     registrations: 'adimins/registrations',
     sessions: 'adimins/sessions'
   }
   
+
   namespace :admin do
     resources :homes
     resources :products
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
     resources :products
     resources :customers
     resources :cart_products
+    resources :genres
     resources :orders
     resources :delivery_addresses
   end

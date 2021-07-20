@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <%= render 'sidebar', genres: @genres %>
+    <%= attachment_image_tag @product, :image, :fill, 200, 200 %>
+    <%= @product.name %>
+    <%= @product.text %>
+    ¥<%= @product.add_tax_price.to_s(:delimited, delimiter: ',') %>(税込)
+    <%= form_with model: @product do |f| %>
+      <%= f.select :quantity, [["1個", "1"], ["2個", "2"], ["3個", "3"], ["4個", "4"]], include_blank: "選択して下さい" %>
+    <%= f.submit 'カートに入れる', class: 'btn btn-sm btn-success' %>
+    <% end %>
+  </div>
+</div>
