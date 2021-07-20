@@ -15,9 +15,9 @@
       <tr>
         <td><%= customer.id %></td>
         <td>
-          <%= link_to "/customers/my_page" do %>
+          <%= link_to "/admin/customers/:id" do %>
             <%= customer.last_name %> <%= customer.first_name %></td>
-          <% end %>git 
+          <% end %>
         <td><%= customer.email %></td>
         <td><%= customer.is_delete %></td>
       </tr>
