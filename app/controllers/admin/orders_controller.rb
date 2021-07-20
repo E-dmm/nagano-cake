@@ -9,13 +9,13 @@ class Admin::OrdersController < ApplicationController
   def show
     @customer = Customer.find(params[:customer_id])
     @order_day = @customer.created_order
-    @delivery_address = find(params[:delivery_address_id])
-    @product = find(params[:product_id])
-    @ordered_product = find(params[:ordered_product_id])
+    @delivery_address = DelivertAddress.find(params[:delivery_address_id])
+    @product = Product.find(params[:product_id])
+    @ordered_product = OrderProduct.find(params[:ordered_product_id])
   end
 
   def update
-    @order = find(params[:id])
+    @order = Order.find(params[:id])
     @order.update(order_params)
     redirect_to request.referer
   end
