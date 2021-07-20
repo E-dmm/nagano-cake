@@ -4,15 +4,12 @@ Rails.application.routes.draw do
     sessions: 'customers/sessions'
   }
 
-  devise_for :admins
-  devise_scope :admin do
-    get 'admin/sign_in' => 'admin/sessions#new'
-    post 'admins/sign_in' => 'admins/sessions#create'
-    delete 'admins/sign_out' => 'admins/sessions#destroy'
-  end
-
-
-
+  
+    devise_for :admins, controllers: {
+    registrations: 'adimins/registrations',
+    sessions: 'adimins/sessions'
+  }
+  
 
   namespace :admin do
     resources :homes
