@@ -8,4 +8,23 @@
 Admin.create!(
    email: 'test@test.com',
    password: 'testtest')
-   
+
+Customer.create!(
+   email: 'test@test.com',
+   password: 'testtest',
+   last_name: 'test',
+   first_name: 'test',
+   last_name_kana: 'test',
+   first_name_kana: 'test',
+   postcode: '0000000',
+   address: 'test',
+   phone_number: '00000000000',
+   is_delete: 'false'
+   )
+
+Products.create!(
+   name: 'test',
+   text: 'test',
+   price: 'price',
+   is_active: 'true',
+   )

@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe'
     resources :cart_products
     resources :genres
+    get 'orders/thanks' => 'orders#thanks'
+    get 'orders/confirm' => 'orders#confirm'
     resources :orders
     resources :delivery_addresses
   end
