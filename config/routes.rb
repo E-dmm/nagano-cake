@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :homes
     resources :products
     resources :customers
+    get 'customers/unsubscribe'
     resources :cart_products
     resources :genres
     get 'orders/thanks' => 'orders#thanks'
