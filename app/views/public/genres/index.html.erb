@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <%= render 'products/sidebar', genres: @genres %>
+    <h2><%= @genre.name %>一覧(全<%= @products.count %>件)</h2>
+    <% @products.each do |product| %>
+      <%= link_to product_path(product.id) do %>
+        <%= attachment_image_tag product, :image, :fill, 200, 200 %>
+        <%= product.name %>
+        ¥<%= product.price.to_s(:delimited, delimiter: ',') %>
+      <% end %>
+    <% end %>
+    <%= paginate @product %>
+  </div>
+</div>

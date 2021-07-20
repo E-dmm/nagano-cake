@@ -1,4 +1,5 @@
 class Public::ProductsController < ApplicationController
+
   def index
     @products = Product.page(params[:page]).reverse_order
   end
@@ -7,4 +8,5 @@ class Public::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   
+
 end
