@@ -3,8 +3,7 @@ class Admin::CustomersController < ApplicationController
   # before_action :authenticate_admin
 
   def index
-    # @customers = Customer.all kaminari使用の為
-    @customers = Customer.page(params[:page]).reverse_order
+    @customers = Customer.page(params[:page]).per(5).order(id:"ASC")
   end
 
   def show

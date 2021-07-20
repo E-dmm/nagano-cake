@@ -1,5 +1,6 @@
+
 <h2>会員一覧</h2>
-<div class = "row">
+<!--<div class = "row">-->
   <table>
     <thead>
       <tr>
@@ -12,13 +13,16 @@
     <tbody>
       <% @customers.each do |customer| %>
       <tr>
-        <td><%= custemer.id %></td>
-        <td><%= custemer.last_name %> <%= custemer.first_name %></td>
-        <td><%= custemer.emai %></td>
-        <td><%= is_delete %></td>
+        <td><%= customer.id %></td>
+        <td>
+          <%= link_to "/customers/my_page" do %>
+            <%= customer.last_name %> <%= customer.first_name %></td>
+          <% end %>git 
+        <td><%= customer.email %></td>
+        <td><%= customer.is_delete %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
   <%= paginate @customers %>
-</div>
+<!--</div>-->

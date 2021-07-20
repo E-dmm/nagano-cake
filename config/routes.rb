@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     sessions: 'customers/sessions'
   }
 
-  
+
     devise_for :admins, controllers: {
     registrations: 'adimins/registrations',
     sessions: 'adimins/sessions'
   }
-  
+
 
   namespace :admin do
     resources :homes
