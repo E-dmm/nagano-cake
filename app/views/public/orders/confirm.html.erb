@@ -17,13 +17,13 @@
                 <%= cart_product.product.name %>
               </td>
               <td>
-                <%= @cart_product.product.price.add_tax_price.to_s(:delimited, delimiter: ',') %>
+                <%= cart_product.product.price.add_tax_price.to_s(:delimited, delimiter: ',') %>
               </td>
               <td>
                   <%= cart_product.quantity %>
               </td>
               <td>
-                ¥<%= @cart_product.product.price.add_tax_price * cart_product.quantity).to_s(:delimited, delimiter: ',') %>
+                ¥<%= cart_product.product.price.add_tax_price * cart_product.quantity).to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
           <% end %>

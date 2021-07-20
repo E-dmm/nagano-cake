@@ -11,7 +11,7 @@
 #    password: 'testtest')
 
 # Customer.create!(
-#    email: 'test2@test.com',
+#    email: 'test@test.com',
 #    password: 'testtest',
 #    last_name: 'test',
 #    first_name: 'test',
@@ -31,10 +31,10 @@
 #    is_active: '販売中',
 #    )
 
-Cart_product.create!(
-   product_id: 3,
-   costomer_id: 3,
-   quantity: 3
+CartProduct.create!(
+   product_id: 1,
+   costomer_id: 1,
+   quantity: 1
    )
 
 Order.create!(

@@ -47,6 +47,12 @@ class Public::OrdersController < ApplicationController
 			redirect_to new_public_order_path
 		end
   end
+
+  def confirm
+      @cart_products = CartProduct.where(customer_id:[current_customer.id])
+  end
+
+
 	def thanks
 		order = Order.new(session[:order])
 		order.save
