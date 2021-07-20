@@ -1,5 +1,5 @@
 <table class="table table-bordered">
-     <div>登録情報<%= link_to "編集する",edit_public_customer_path(current_customer) %> </div>
+     <div>登録情報<%= link_to "編集する",edit_customer_path(current_customer) %> </div>
     <tr>
         <td>氏名</td>
         <td><%= @customer.last_name %> <%= @customer.first_name %> </td>

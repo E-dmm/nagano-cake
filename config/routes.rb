@@ -20,13 +20,14 @@ Rails.application.routes.draw do
     resources :order_details
   end
   root to: 'public/homes#top'
-  namespace :public do
+  scope module: :public do
     # get 'homes/top'
     get 'homes/about'
     resources :homes
     resources :products
     resources :customers
-    get 'customers/unsubscribe'
+    get 'customers/my_page'
+    get 'unsubscribe' => 'customers#unsubscribe'
     resources :cart_products
     resources :genres
     get 'orders/thanks' => 'orders#thanks'
