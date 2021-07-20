@@ -1,43 +1,43 @@
 <div class="col-md-10 offset-md-1">
     <h2>会員情報編集</h2>
-    <%= form_with model: @customer, url: customers_sign_up_path,local: true do |f| %>
+    <%= form_with model: @customer, url: public_customer_path,local: true do |f| %>
     <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "customers/shared/error_messages", resource: resource %>
+      <%#= render "customers/shared/error_messages", resource: resource %>
     
     
     　<div class="field">
         <%= f.label :last_name, "(姓)" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :last_name, autofocus: true %>
       </div>
       
       <div class="field">
         <%= f.label :first_name, "（名）" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :first_name, autofocus: true %>
       </div>
       
       <div class="field">
         <%= f.label :last_name_kana, "(セイ)" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :last_name_kana, autofocus: true %>
       </div>
       
       <div class="field">
         <%= f.label :first_name_kana, "(メイ)" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :first_name_kana, autofocus: true %>
       </div>
       
       <div class="field">
         <%= f.label :postcode, "郵便番号（ハイフンなし）" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :postcode, autofocus: true %>
       </div>
       
       <div class="field">
         <%= f.label :address, "住所" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :address, autofocus: true %>
       </div>
       
       <div class="field">
         <%= f.label :phone_number,"電話番号（ハイフンなし）" %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :phone_number, autofocus: true %>
       </div>
     
     <div class="field">
@@ -48,7 +48,7 @@
     
       <div class="actions">
         <%= f.submit "編集内容を保存", class: 'btn btn-success' %>
-        <%= link_to '退会する' class: "btn btn-danger"%>
+        <%= link_to '退会する',  public_customers_unsubscribe_path, class: "btn btn-danger"%>
       </div>
     <% end %>
 </div>

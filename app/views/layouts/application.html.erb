@@ -33,11 +33,8 @@ taro
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
            <% else %>
             <li><%= link_to "About", public_homes_about_path %></li>
-            <li><%= link_to "商品一覧", admin_products_path %></li>
 
-
-          
-
+            <li><%= link_to "商品一覧", public_products_path %></li>
             <li><%= link_to "新規登録", new_customer_registration_path %></li> 
 
             <li><%= link_to "ログイン", new_customer_session_path %></li>

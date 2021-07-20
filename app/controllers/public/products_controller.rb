@@ -1,13 +1,12 @@
 class Public::ProductsController < ApplicationController
 
   def index
-    @genres = Genre.all
-    @products = Product.all
+    @products = Product.page(params[:page]).reverse_order
   end
-
+  
   def show
     @product = Product.find(params[:id])
-    @Genres = Genre.all
   end
+  
 
 end

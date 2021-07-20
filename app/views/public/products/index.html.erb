@@ -1,14 +1,27 @@
-<div class="container">
-  <div class="row">
-    <%= render 'sidebar', genres: @genres %>
-    <h2>商品一覧(全<%= @products.count %>件)</h2>
-    <% @products.each do |product| %>
-      <%= link_to public_product_path(product) do %>
-        <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg" %>
-        <%= product.name %>
-        ¥<%= product.price.to_s(:delimited, delimiter: ',') %>
-      <% end %>
-    <% end %>
+
+<div class="row">
+    <div class="col-md-3">
+        <table class="table table-bordered ml-3">
+            <thead>
+                <th>ジャンル名</th>
+            </thead>
+            <tbody>
+                <th>#</th>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-8">
+        
+        <h2>商品一覧（全<%= @products.count %>件）</h2>
+    　　　<% @products.each do |product| %>
+    　　　<div>
+             <%= attachment_image_tag product, :image %>
+             <%= product.name %>
+             <%= product.price %>
+    　　　</div>
+    　　　<% end %>
+        
+    </div>
     <%= paginate @products %>
-  </div>
+
 </div>
