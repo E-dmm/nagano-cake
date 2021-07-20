@@ -1,8 +1,5 @@
 class Public::OrdersController < ApplicationController
 
-  # def index
-  # end
-
   def show
     @order = Order.find(params[:id])
     @ordered_products = @order.ordered_products
@@ -11,13 +8,8 @@ class Public::OrdersController < ApplicationController
     @delivery_address = DelivertAddress.find(params[:delivery_address_id])
   end
 
-
-
-  # before_action :authenticate_customer!
-
-
   def new
-    # @cart_products = current_customer.cart_products
+    @cart_products = current_customer.cart_products
   end
 
   def create
@@ -66,26 +58,21 @@ class Public::OrdersController < ApplicationController
 			delivery_address.save
 			session[:new_address] = nil
 		end
-		# cart_products = current_customer.cart_products
-		# cart_products.each do |cart_product|
-		# 	ordered_products = OrderedProducts.new
-		# 	ordered_products.order_id = order.id
-		# 	ordered_products.item_id = cart_product.product.id
-		# 	ordered_products.quantity = cart_product.quantity
-		# 	ordered_products.production_status = 0
-		# 	ordered_products.price = (cart_product.product.price * 1.1).floor
-		# 	ordered_products.save
-		# end
-		# cart_products.destroy_all
+		cart_products = current_customer.cart_products
+		cart_products.each do |cart_product|
+			ordered_products = OrderedProducts.new
+			ordered_products.order_id = order.id
+			ordered_products.product_id = cart_product.product.id
+			ordered_products.quantity = cart_product.quantity
+			ordered_products.production_status = 0
+			ordered_products.price = (cart_product.product.price * 1.1).floor
+			ordered_products.save
+		end
+		cart_products.destroy_all
 	end
 
 	def index
 		@orders = current_customer.orders
-	end
-
-	def show
-		@order = Order.find(params[:id])
-		@ordered_products = @order.ordered_products
 	end
 
 end

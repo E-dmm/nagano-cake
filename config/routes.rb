@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :homes
+    get '/' => 'homes#top'
     resources :products
     resources :genres
     resources :customers
