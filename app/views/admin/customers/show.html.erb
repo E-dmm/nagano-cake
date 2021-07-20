@@ -1,4 +1,4 @@
-<h2><%= @custemer.id %>さんの会員詳細</h2>
+<h2><%= @customer.last_name %> <%= @customer.first_name %>さんの会員詳細</h2>
 
 <table>
   <tbody>
@@ -8,33 +8,38 @@
     </tr>
     <tr>
       <th>氏名</th>
-      <td><%= @custemer.last_name %> <%= @custemer.first_name %></td>
+      <td><%= @customer.last_name %> <%= @customer.first_name %></td>
     </tr>
     <tr>
       <th>フリガナ</th>
-      <td><%= @custemer.last_name_kana %> <%= @custemer.first_name_kana %></td>
+      <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
     </tr>
     <tr>
       <th>郵便番号</th>
-      <td><%= @custemer.postcode %></td>
+      <td><%= @customer.postcode %></td>
     </tr>
     <tr>
       <th>住所</th>
-      <td><%= @custemer.address %></td>
+      <td><%= @customer.address %></td>
     </tr>
       <tr>
       <th>電話番号</th>
-      <td><%= @custemer.phone_number %></td>
+      <td><%= @customer.phone_number %></td>
     </tr>
       <tr>
       <th>メールアドレス</th>
-      <td><%= @custemer.email %></td>
+      <td><%= @customer.email %></td>
     </tr>
     <tr>
       <th>会員ステータス</th>
-      <td><%= @custemer.is_delete %></td>
+      <td><%= @customer.is_delete %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "編集する", edit_admin_customer_path, class:"btn btn-success text-white" %></td>
+      <td><%= link_to "注文履歴一覧を見る", "", class:"btn btn-primary text-white" %></td>
     </tr>
   </tbody>
-    <%= link_to "編集する", edit_admin_customer_path, class:"p-3 mb-2 bg-success text-white" %>
-    <%= link_to "注文履歴一覧を見る", _path, class:"p-3 mb-2 bg-primary text-white" %>
 </table>
+
+
+      

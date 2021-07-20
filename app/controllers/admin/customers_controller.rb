@@ -3,20 +3,19 @@ class Admin::CustomersController < ApplicationController
   # before_action :authenticate_admin
 
   def index
-    # @customers = Customer.all kaminari使用の為
-    @customers = Customer.page(params[:page]).reverse_order
+    @customers = Customer.page(params[:page]).per(5).order(id:"ASC")
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
-     @customer = Customer.find(params[:id])
+     @customer = current_customer
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @customer.update(customer_params)
     redirect_to admin_customer_path(@customer.id)
   end

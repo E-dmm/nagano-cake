@@ -21,7 +21,7 @@
             <td><%= cart.product.price %></td>
             <td>
               <%= form_with model:cart_product, url: 'cart_product_path', method: :patch do |f| %>
-                <%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+                <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
                 <%= f.submit "変更", class: 'btn btn-sm btn-success'%>
               <% end %>
             </td>

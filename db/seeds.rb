@@ -31,8 +31,19 @@
 #    is_active: '販売中',
 #    )
 
-Cart_products.create!(
+Cart_product.create!(
    product_id: 3,
    costomer_id: 3,
    quantity: 3
    )
+
+Order.create!(
+   customer_id: 1,
+   payment: 1,
+   postcode: '1111111'
+   address: 'tokyo',
+   total_price: 910,
+   address_name: 'hoge',
+   shipping: 800,
+   order_status: 1,
+)
