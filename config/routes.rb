@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :homes
     resources :products
     resources :customers
+    get 'customers/unsubscribe'
     resources :cart_products
     resources :orders
     resources :delivery_addresses
