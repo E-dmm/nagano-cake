@@ -2,8 +2,11 @@ class Admin::OrdersController < ApplicationController
 
   # before_action :authenticate_admin
 
+
   def index
-    @orders = Order.page(params[:page]).reverse_order
+    @orders = Order.page(params[:page]).per(5)
+    @order_day = @customer.created_order
+    @product = Product.find(params[:product_id])
   end
 
   def show
@@ -19,10 +22,10 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     redirect_to request.referer
   end
-  
-  
+
+
   private
-  
+
   def order_params
     params.require(:order.permit(:order_status))
   end

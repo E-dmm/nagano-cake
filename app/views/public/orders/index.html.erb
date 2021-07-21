@@ -1,0 +1,31 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <h2>注文履歴一覧</h2>
+    <table class='table table-bordered'>
+      <thead>
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>ステータス</th>
+          <th>注文詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td><%= @order_day %></td>
+          <td>
+            <%= @delivery_address.address %>
+            <%= @customer.last_name %>
+            <%= @customer.last_name %>
+          </td>
+          <td><%= @product.name %></td>
+          <td><%= form.select :order_status, Order.order_status.keys, class: "order_status-select" %></td>
+        </tr>
+          <%= paginate @orders %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

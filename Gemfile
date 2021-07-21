@@ -62,8 +62,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise"
 gem 'kaminari','~> 1.2.1'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
@@ -73,3 +71,5 @@ gem 'rubocop-airbnb'
 gem 'pry-byebug'
 gem 'pry-rails'
 gem 'ransack'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
