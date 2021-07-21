@@ -1,6 +1,6 @@
 <div class="col-md-10 offset-md-1">
     <h2>会員情報編集</h2>
-    <%= form_with model: @customer, url: public_customer_path,local: true do |f| %>
+    <%= form_with model: @customer, url: customer_path,local: true do |f| %>
     <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%#= render "customers/shared/error_messages", resource: resource %>
     
@@ -48,7 +48,7 @@
     
       <div class="actions">
         <%= f.submit "編集内容を保存", class: 'btn btn-success' %>
-        <%= link_to '退会する',  public_customers_unsubscribe_path, class: "btn btn-danger"%>
+        <%= link_to '退会する', unsubscribe_path, class: "btn btn-danger" %>
       </div>
     <% end %>
 </div>
