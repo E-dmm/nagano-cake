@@ -20,7 +20,7 @@ class Public::CustomersController < ApplicationController
   
   def withdraw
     @customer = current_customer
-    #is_deletedカラムにフラグを立てる(defaultはfalse)
+    #is_deleteカラムにフラグを立てる(defaultはfalse)
     @customer.update(is_delete: true)
     #ログアウトさせる
     reset_session
