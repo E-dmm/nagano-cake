@@ -10,10 +10,10 @@
 			<h3>お届け先</h3>
       <%= f.radio_button :a_method, 0, checked: "checked" %>
 				<%= f.label :ご自身の住所 %>
-				<%= @customer.postcode %>
-			  <%= @customer.address %>
-			  <%= @customer.last_name %>
-			  <%= @customer.first_name %>
+				<%= current_customer.postcode %>
+			  <%= current_customer.address %>
+			  <%= current_customer.last_name %>
+			  <%= current_customer.first_name %>
 	    <%= f.radio_button :a_method, 1 %>
 				<%= f.label :登録済住所から選択 %>
 				<!--f.collection_select((プロパティ名, オブジェクトの配列, value属性の項目, テキストの項目 [, オプション])-->
