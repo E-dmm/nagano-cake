@@ -13,7 +13,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :postcode
       t.string :address
       t.string :phone_number
-      t.boolean :is_delete
+      t.boolean :is_delete, null: false, default: false
       
 
       ## Recoverable

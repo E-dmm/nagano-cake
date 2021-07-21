@@ -8,8 +8,8 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :cart_products
   
-  # def active_for_authentication?
-  #   super && (self.is_delete == false)
-  # end
+  def active_for_authentication?
+    super && (self.is_delete == false)
+  end
 
 end
