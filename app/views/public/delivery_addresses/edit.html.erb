@@ -1,6 +1,6 @@
 <main>
   <div class = "row">
-      <%= form_with model:@delivery_address, url: "/public/delivery_addresses", local:true do |f| %>
+      <%= form_with model:@delivery_address, url: delivery_address_path, local:true do |f| %>
       <h4>郵便番号（ハイフンなし）</h4>
       <%= f.number_field :postcode %>
 
@@ -9,7 +9,7 @@
 
       <h4>宛名</h4>
       <%= f.text_field :name %>
-      
+
       <%= f.submit "変更内容を保存", class: "btn btn-primary" %>
     <% end %>
   </div>
