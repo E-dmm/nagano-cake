@@ -2,10 +2,12 @@
     <div class="col-md-3">
         <table class="table table-bordered ml-3">
             <thead>
-                <th>ジャンル名</th>
+                <th>ジャンル検索</th>
             </thead>
             <tbody>
-                <th>#</th>
+                <% @genres.each do |genre| %>
+                      <th><%= genre.name %></th>
+                <% end %>
             </tbody>
         </table>
     </div>
@@ -20,6 +22,15 @@
         </div>
         <h2>新着順</h2>
     　　　<!--最新の商品から４つ取り出す-->
+    　　　<% @products.first(5). each do |product| %>
+    　　　    <div>
+    　　　     <%= link_to product_path(product.id) do %>
+             <%= attachment_image_tag product, :image, size: "340x220" %>
+            <% end %>
+             <%= product.name %>
+             <%= product.price %>
+    　　　</div>
+    　　　<% end %>
     　　　
         <%= link_to "全ての商品を見る＞" %>
     </div>
