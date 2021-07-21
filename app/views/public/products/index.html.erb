@@ -4,10 +4,12 @@
     <div class="col-md-3">
         <table class="table table-bordered ml-3">
             <thead>
-                <th>ジャンル名</th>
+                <th>ジャンル検索</th>
             </thead>
             <tbody>
-                <th>#</th>
+                <% @genres.each do |genre| %>
+                      <th><%= genre.name %></th>
+                <% end %>
             </tbody>
         </table>
     </div>
@@ -16,7 +18,9 @@
         <h2>商品一覧（全<%= @products.count %>件）</h2>
     　　　<% @products.each do |product| %>
     　　　<div>
-             <%= attachment_image_tag product, :image %>
+    　　　     <%= link_to product_path(product.id) do %>
+             <%= attachment_image_tag product, :image, size: "340x220" %>
+            <% end %>
              <%= product.name %>
              <%= product.price %>
     　　　</div>

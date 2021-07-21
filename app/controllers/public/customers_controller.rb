@@ -9,9 +9,9 @@ class Public::CustomersController < ApplicationController
   end
   
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @customer.update(customer_params)
-    redirect_to public_customer_path(current_customer)
+    redirect_to customer_path(current_customer)
   end
   
   def unsubscribe
@@ -19,7 +19,13 @@ class Public::CustomersController < ApplicationController
   end
   
   def withdraw
-    
+    @customer = current_customer
+    #is_deletedカラムにフラグを立てる(defaultはfalse)
+    @customer.update(is_delete: true)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
   
   private

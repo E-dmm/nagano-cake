@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :customers
     get 'customers/my_page'
     get 'unsubscribe' => 'customers#unsubscribe'
+    put "/customers/:id/withdraw" => "customers#withdraw", as: 'customers_withdraw'
     resources :cart_products
     resources :genres
     get 'orders/thanks' => 'orders#thanks'
