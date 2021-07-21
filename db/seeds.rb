@@ -31,19 +31,40 @@
 #    is_active: '販売中',
 #    )
 
-CartProduct.create!(
-   product_id: 1,
-   costomer_id: 1,
-   quantity: 1
-   )
+# CartProduct.create!(
+#    product_id: 1,
+#    customer_id: 1,
+#    quantity: 1
+#    )
 
-Order.create!(
-   customer_id: 1,
-   payment: 1,
-   postcode: '1111111'
-   address: 'tokyo',
-   total_price: 910,
-   address_name: 'hoge',
-   shipping: 800,
-   order_status: 1,
-)
+# Order.create!(
+#    customer_id: 1,
+#    payment: 1,
+#    postcode: '1111111',
+#    address: 'tokyo',
+#    total_price: 910,
+#    address_name: 'hoge',
+#    shipping: 800,
+#    order_status: 1,
+# )
+
+# DeliveryAddress.create!(
+#    customer_id: 1,
+#    postcode: '1111111',
+#    name: 'dmm',
+#    address: 'osaka'
+#    )
+
+# Genre.create!(
+#    name: 'sample',
+#    )
+
+# OrderedProduct.create!(
+#    product_id: 1,
+#    order_id: 1,
+#    price: 100,
+#    quantity: 1,
+#    production_status: 0,
+#    )
+
+
