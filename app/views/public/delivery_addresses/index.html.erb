@@ -1,26 +1,34 @@
 <main>
   <h1>配送先登録/一覧</h1>
-  <div class = "row">
-    <%= form_with model:@delivery_address, url: "/public/delivery_addresses", local:true do |f| %>
-      <%= f.label :postcode %> <!--ハイフンなしって入れなきゃ、、-->
-      <%= f.number_field :postcode %>
+  <!--<div class = "row">-->
+  <table>
+    <tbody>
+       <%= form_with model:@delivery_address, url: delivery_addresses_path, local:true do |f| %>
+      <tr>
+        <th>郵便番号（ハイフンなし）</th>
+        <td><%= f.text_field :postcode %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+        <th>宛名</th>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+      </tr>
 
-      <%= f.label :address %>
-      <%= f.text_field :address %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.submit "新規登録", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+       <% end %>
+    </tbody>
+  </table>
+   <!--</div>-->
   <table>
     <thead>
       <tr>
-        <td>郵便番号</td>
-        <td>住所</td>
-        <td>宛名</td>
-        <td></td>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -30,9 +38,9 @@
           <td><%= delivery_address.address %></td>
           <td><%= delivery_address.name %></td>
           <td>
-            <% if customer_session_path && current_customer.id == delivery_address.customer_id %>
-              <%= link_to "編集", edit_public_delivery_address_path, class:"p-3 mb-2 bg-success text-white" %>
-              <%= link_to "削除", public_delivery_address_path, method: :delete, data: {confirm: "削除しますか？"}, class:"p-3 mb-2 bg-danger text-white" %>
+            <% if current_customer %>
+              <%= link_to "編集", edit_delivery_address_path(delivery_address.id), class:"btn-success text-white" %>
+              <%= link_to "削除", delivery_address_path(delivery_address.id), method: :delete, data: {confirm: "削除しますか？"}, class:"p-3 mb-2 bg-danger text-white" %>
             <% end %>
           </td>
         </tr>

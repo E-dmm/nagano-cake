@@ -3,7 +3,7 @@ class Admin::CustomersController < ApplicationController
   # before_action :authenticate_admin
 
   def index
-    @customers = Customer.page(params[:page]).per(5).order(id:"ASC")
+    @customers = Customer.page(params[:page]).per(5).order(created_at: :asc)
   end
 
   def show
