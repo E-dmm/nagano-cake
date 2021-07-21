@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :homes
+    get '/' => 'homes#top'
     resources :products
     resources :genres
     resources :customers
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
     get 'customers/my_page'
     get 'unsubscribe' => 'customers#unsubscribe'
     resources :cart_products
+    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
     resources :genres
     get 'orders/thanks' => 'orders#thanks'
     get 'orders/confirm' => 'orders#confirm'

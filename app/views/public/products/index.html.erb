@@ -12,16 +12,19 @@
         </table>
     </div>
     <div class="col-md-8">
-        
+
         <h2>商品一覧（全<%= @products.count %>件）</h2>
-    　　　<% @products.each do |product| %>
-    　　　<div>
-             <%= attachment_image_tag product, :image %>
-             <%= product.name %>
-             <%= product.price %>
-    　　　</div>
-    　　　<% end %>
-        
+           <% @products.each do |product| %>
+
+           <div>
+           <%= attachment_image_tag product, :image,  size: "100x100" %>
+
+
+           <%= product.name %>
+           <%= product.price %>
+           </div>
+           <% end %>
+
     </div>
 
     <%= paginate @products %>

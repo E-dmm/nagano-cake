@@ -5,26 +5,45 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create!(
-   email: 'test@test.com',
-   password: 'testtest')
 
-Customer.create!(
-   email: 'test@test.com',
-   password: 'testtest',
-   last_name: 'test',
-   first_name: 'test',
-   last_name_kana: 'test',
-   first_name_kana: 'test',
-   postcode: '0000000',
-   address: 'test',
-   phone_number: '00000000000',
-   is_delete: 'false'
+# Admin.create!(
+#    email: 'test@test.com',
+#    password: 'testtest')
+
+# Customer.create!(
+#    email: 'test@test.com',
+#    password: 'testtest',
+#    last_name: 'test',
+#    first_name: 'test',
+#    last_name_kana: 'test',
+#    first_name_kana: 'test',
+#    postcode: '0000000',
+#    address: 'test',
+#    phone_number: '00000000000',
+#    is_delete: 'false'
+#    )
+
+# Product.create!(
+#    genre_id: 1,
+#    name: 'test',
+#    text: 'test',
+#    price: 100,
+#    is_active: '販売中',
+#    )
+
+CartProduct.create!(
+   product_id: 1,
+   costomer_id: 1,
+   quantity: 1
    )
 
-Products.create!(
-   name: 'test',
-   text: 'test',
-   price: 'price',
-   is_active: 'true',
-   )
+Order.create!(
+   customer_id: 1,
+   payment: 1,
+   postcode: '1111111'
+   address: 'tokyo',
+   total_price: 910,
+   address_name: 'hoge',
+   shipping: 800,
+   order_status: 1,
+)
