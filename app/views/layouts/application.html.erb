@@ -4,11 +4,9 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
       <nav>
@@ -18,7 +16,6 @@
             <li><%= link_to "商品一覧", products_path %></li>
             <li><%= link_to "カート", cart_products_path %></li>
             <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li> 
-          
           <% elsif  admin_signed_in? %>
             <li><%= link_to "商品一覧", admin_products_path %></li>
             <li><%= link_to "会員一覧", admin_customers_path %></li>

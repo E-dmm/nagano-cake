@@ -1,0 +1,27 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <h2>注文履歴一覧</h2>
+    <table class='table table-bordered'>
+      <thead>
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>ステータス</th>
+          <th>注文詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        < @orders.erch do |order| %>
+        <tr>
+          <td><= link_to order.created_at, order_path(@order) %></td>
+          <td><= order.customer_id.name %></td>
+          <td><= order.quantity %></td>
+          <td><= order.order_status %></td>
+        </tr>
+        < end %>
+      </tbody>
+    </table>
+    <%= paginate @orders %>
+  </div>
+</div>

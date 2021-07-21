@@ -17,13 +17,13 @@
                 <%= cart_product.product.name %>
               </td>
               <td>
-                ¥<%= ((cart_product.product.price * 1.1).floor).to_s(:delimited, delimiter: ',') %>
+                <%= cart_product.product.price.add_tax_price.to_s(:delimited, delimiter: ',') %>
               </td>
               <td>
                   <%= cart_product.quantity %>
               </td>
               <td>
-                ¥<%= ((cart_product.product.price * 1.1).floor * cart_product.quantity).to_s(:delimited, delimiter: ',') %>
+                ¥<%= cart_product.product.price.add_tax_price * cart_product.quantity).to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
           <% end %>
@@ -31,10 +31,10 @@
       </table>
       <table class="table table-hover table-sm table-bordered">
           <tr>
-            <th>配送料</th>
+            <th>送料</th>
             <td>
               <!-- sessiomのデータを表示する場合、カラム名に""つける -->
-              ¥<%= session[:order][""].to_s(:delimited, delimiter: ',') %>
+              <%= session[:order][""].to_s(:delimited, delimiter: ',') %>
             </td>
           </tr>
           <tr>

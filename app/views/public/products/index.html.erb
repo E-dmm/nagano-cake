@@ -14,7 +14,7 @@
         </table>
     </div>
     <div class="col-md-8">
-        
+
         <h2>商品一覧（全<%= @products.count %>件）</h2>
     　　　<% @products.each do |product| %>
     　　　<div>
@@ -25,7 +25,6 @@
              <%= product.price %>
     　　　</div>
     　　　<% end %>
-        
     </div>
 
     <%= paginate @products %>
