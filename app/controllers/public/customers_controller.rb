@@ -20,12 +20,12 @@ class Public::CustomersController < ApplicationController
   
   def withdraw
     @customer = current_customer
-    #is_deletedカラムにフラグを立てる(defaultはfalse)
+    #is_deleteカラムにフラグを立てる(defaultはfalse)
     @customer.update(is_delete: true)
     #ログアウトさせる
-    reset_session
+    
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    redirect_to root_path
+    redirect_to logout_path
   end
   
   private

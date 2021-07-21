@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations',
     sessions: 'customers/sessions'
   }
+  
+  devise_scope :customer do
+    get '/customers/logout' => 'devise/sessions#destroy', as: :logout
+  end
 
 
     devise_for :admins, controllers: {
