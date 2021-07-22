@@ -1,10 +1,10 @@
+<main>
 <h2>注文履歴詳細</h2>
-<div class = "row">
   <table>
     <tbody>
       <tr>
         <th>購入者</th>
-        <td><%= @customer.id %></td>
+        <td><%= @order.address_name %></td>
       </tr>
       <tr>
         <th>注文日</th>
@@ -13,7 +13,7 @@
       <tr>
         <th>配送先</th>
         <td>
-          <%= @delivery_address.address %>
+          <%= @order.address %>
           <%= @customer.last_name %>
           <%= @customer.last_name %>
         </td>
@@ -25,8 +25,10 @@
       <tr>
         <th>注文ステータス</th>
         <td>
-           <%= form.select :order_status, Order.order_status.keys, class: "order_status-select" %>
-           <%= form.submit "更新" , class: "btn btn-sucsess" %>
+          <%= form_with model: @order, url: admin_order_path,local: true do |f| %>
+           <%= f.select :order_status, Order.order_statuses.keys, class: "order_status-select" %>
+           <%= f.submit "更新" , class: "btn-sm btn-success" %>
+          <% end %>
         </td>
       </tr>
     </tbody>
@@ -43,13 +45,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @product.name %></td>
-        <td><%= @ordered_product.price %></td>
-        <td><%= @ordered_product.quantity %></td>
-        <td><%= sum_of_price %></td>
-        <td><%= form.select :production_status, OrderedProduct.production_status.keys, class: "production_status-select" %></td>
-        <td><%= from.submit "更新", class: "btn btn-sucsess" %></td>
+        <td><%= @ordered_products %></td>
+        <td><%#= @ordered_product.price %></td>
+        <td><%#= @ordered_product.quantity %></td>
+        <td><%#= @ordered_product.sum_of_price %></td>
+        <td>
+        <%= form_with model: @ordered_product, url: admin_order_details_path,local: true do |f| %>
+          <%= f.select :production_status, OrderedProduct.production_statuses.keys, class: "production_status-select" %>
+          <%= f.submit "更新", class: "btn-sm btn-success" %>
+        <% end %>
+        </td>
       </tr>
     </tbody>
   </table>
-</div>
+</main>
