@@ -1,9 +1,9 @@
 class Public::OrdersController < ApplicationController
-	
+
 	def index
 		@orders = current_customer.orders
 		@order_day = @orders.created_at.strftime('%Y/%m/%d')
-		@product = @orders.pr
+		@product = @orders.product
 	end
 
   def show
