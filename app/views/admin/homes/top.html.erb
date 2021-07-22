@@ -4,7 +4,6 @@
     <table class='table table-hover table-inverse'>
       <thead>
         <tr>
-          <th></th>
           <th>購入日時</th>
           <th>購入者</th>
           <th>注文個数</th>
@@ -14,10 +13,14 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <td><%#= @order_day %></td>
-          <td><%= order.address_name %></td>
+          <td><%= @order_day %></td>
+          <td>
+            <%= link_to admin_order_path(order) do %>
+            　<%= order.address_name %>
+            <% end %>
+          </td>
           <td><%#= @order_product.quantity %></td>
-          <td><%= form.select :order_status, Order.order_status.keys, class: "order_status-select" %></td>
+          <td><%= order.order_status %></td>
         </tr>
           <%= paginate @orders %>
         <% end %>
