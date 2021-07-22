@@ -23,7 +23,7 @@
             <%= cart_product.quantity %>
           </td>
           <td>
-            <%= (cart_product.product.price*1.1)*(cart_product.quantity) %>
+            <%= ((cart_product.product.add_tax_price)*(cart_product.quantity)).to_s(:delimited, delimiter: ',') %>
           </td>
         </tr>
       <% end %>
@@ -53,9 +53,23 @@
       <td>
         <%= @order.postcode %>
         <%= @order.address %>
-        <%= @order.name %>
+        <%= @order.address_name %>
       </td>
     </tr>
   </table>
-  <%= link_to "注文を確定する", orders_thanks_path, class: 'btn btn-sm btn-success' %>
+  <%= form_with model: @order, url: orders_path, local: true do |f| %>
+  <!--デフォルトでpostがついている-->
+    <%= f.submit '注文を確認する', class: 'btn btn-sm btn-success' %>
+    <%#= f.hidden_field :order_id, :value => @order.id %>
+    <!--createに送りたい場合は必要,中間にconfirmがあるから-->
+    <!--order_paramsにデータを送る-->
+    <%= f.hidden_field :customer_id, :value => @order.customer.id %>
+    <%= f.hidden_field :payment, :value => @order.payment %>
+    <%= f.hidden_field :postcode, :value => @order.postcode %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :total_price, :value => @total_price %>
+    <%= f.hidden_field :address_name, :value => @order.address_name %>
+    <%= f.hidden_field :shipping, :value => @shipping %>
+    <%= f.hidden_field :order_status, :value => @order.order_status %>
+  <% end %>
 </div>

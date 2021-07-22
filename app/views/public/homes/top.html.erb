@@ -25,17 +25,6 @@
         <h2>新着順</h2>
     　　　<!--最新の商品から４つ取り出す-->
     　　　    <div>
-<<<<<<< HEAD
-    　　　     <%= link_to product_path(product.id) do %>
-             <%= attachment_image_tag product, :image, size: "340x220" %>
-            <% end %>
-             <%= product.name %>
-             <%= product.price %>
-    　　　</div>
-    　　　<% end %>
-
-        <%= link_to "全ての商品を見る＞" %>
-=======
     　　　           <div class="container">
     　　　               <div class="row">  
         　　　<% @products. each do |product| %>
@@ -52,6 +41,5 @@
         　　　</div>
         　　</div>
         <%= link_to "全ての商品を見る＞",  products_path%>
->>>>>>> 5a46dd9e617c042d1aead7979027effae25e3d0b
     </div>
 </div>
