@@ -9,7 +9,7 @@
       <tr>
         <th>配送先</th>
         <td>
-          <%= @delivery_address.address %>
+          <%= @order.address %>
           <%= @customer.last_name %>
           <%= @customer.last_name %>
         </td>
@@ -20,10 +20,7 @@
       </tr>
       <tr>
         <th>ステータス</th>
-        <td>
-          <%= form.select :order_status, Order.order_status.keys, class: "order_status-select" %>
-          <%= form.submit "更新" , class: "btn btn-sucsess" %>
-        </td>
+        <td><%= @order.order_status %></td>
       </tr>
     </tbody>
   </table>
@@ -33,7 +30,7 @@
     <tbody>
       <tr>
         <th>商品合計</th>
-       <td><%= @order.total_price %></td>  <!--ここちょっと不明-->
+       <td><%= @order.total_price %></td>
       </tr>
       <tr>
         <th>配送料</th>
@@ -41,7 +38,7 @@
       </tr>
       <tr>
         <th><strong>ご請求額</strong></th>
-        <td> <%= @order.sum_of_order_price %></td> <!--ここも自信はない-->
+        <td> <%= @order.sum_of_order_price %></td>
       </tr>
     </tbody>
   </table>
@@ -57,9 +54,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @product.name %></td>
-        <td><%= @ordered_product.price %></td>
-        <td><%= @ordered_product.quantity %></td>
-        <td><%= sum_of_price %></td>
+        <td><%= @ordered_products %></td>
+        <td><%#= @ordered_products.price %></td>
+        <td><%#= @ordered_products.quantity %></td>
+        <td><%#= sum_of_price %></td>
+      <>
   </table>
 </div>
