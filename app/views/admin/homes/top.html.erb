@@ -12,14 +12,15 @@
         </tr>
       </thead>
       <tbody>
-        <!--< @orders.erch do |order| %>-->
+        <% @orders.each do |order| %>
         <tr>
-          <!--<td><= link_to order.created_at, order_path(@order) %></td>-->
-          <!--<td><= order.customer_id.name %></td>-->
-          <!--<td><= order.quantity %></td>-->
-          <!--<td><= order.order_status %></td>-->
+          <td><%= @order_day %></td>
+          <td><%= order.address_name %></td>
+          <td><%= @order_product.quantity %></td>
+          <td><%= form.select :order_status, Order.order_status.keys, class: "order_status-select" %></td>
         </tr>
-        <!--< end %>-->
+          <%= paginate @orders %>
+        <% end %>
       </tbody>
     </table>
     <%= paginate @orders %>

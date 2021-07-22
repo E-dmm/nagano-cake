@@ -1,50 +1,51 @@
 <main>
-  <h1>配送先登録/一覧</h1>
-  <!--<div class = "row">-->
-  <table>
-    <tbody>
-       <%= form_with model:@delivery_address, url: delivery_addresses_path, local:true do |f| %>
-      <tr>
-        <th>郵便番号（ハイフンなし）</th>
-        <td><%= f.text_field :postcode %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
-      </tr>
-      <tr>
-        <th>宛名</th>
-        <td><%= f.text_field :name %></td>
-        <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
-      </tr>
-
-       <% end %>
-    </tbody>
-  </table>
-   <!--</div>-->
-  <table>
-    <thead>
-      <tr>
-        <th>郵便番号</th>
-        <th>住所</th>
-        <th>宛名</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-        <% @delivery_addresses.each do |delivery_address| %>
-         <tr>
-          <td><%= delivery_address.postcode %></td>
-          <td><%= delivery_address.address %></td>
-          <td><%= delivery_address.name %></td>
-          <td>
-            <% if current_customer %>
-              <%= link_to "編集", edit_delivery_address_path(delivery_address.id), class:"btn-success text-white" %>
-              <%= link_to "削除", delivery_address_path(delivery_address.id), method: :delete, data: {confirm: "削除しますか？"}, class:"p-3 mb-2 bg-danger text-white" %>
-            <% end %>
-          </td>
+    <h1>配送先登録/一覧</h1>
+  
+    <table>
+      <tbody>
+         <%= form_with model:@delivery_address, url: delivery_addresses_path, local:true do |f| %>
+        <tr>
+          <th>郵便番号（ハイフンなし）</th>
+          <td><%= f.text_field :postcode %></td>
         </tr>
-        <% end %>
-    </tbody>
-  </table>
+        <tr>
+          <th>住所</th>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <th>宛名</th>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+        </tr>
+  
+         <% end %>
+      </tbody>
+    </table>
+    
+  
+    <table class = "table table-bordered" >
+      <thead class = "thead-light">
+        <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @delivery_addresses.each do |delivery_address| %>
+           <tr>
+            <td><%= delivery_address.postcode %></td>
+            <td><%= delivery_address.address %></td>
+            <td><%= delivery_address.name %></td>
+            <td>
+              <% if current_customer %>
+                <%= link_to "編集", edit_delivery_address_path(delivery_address.id), class:"btn-sm btn-success text-white" %>
+                <%= link_to "削除", delivery_address_path(delivery_address.id), method: :delete, data: {confirm: "削除しますか？"}, class:"btn-sm btn-danger text-white" %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
 </main>

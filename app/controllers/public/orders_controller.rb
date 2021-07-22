@@ -1,11 +1,16 @@
 class Public::OrdersController < ApplicationController
+	
+	def index
+		@orders = current_customer.orders
+		@order_day = @orders.created_at.strftime('%Y/%m/%d')
+		@product = @orders.pr
+	end
 
   def show
     @order = Order.find(params[:id])
     @ordered_products = @order.ordered_products
-    @customer = Customer.find(params[:customer_id])
-    @order_day = @customer.created_order
-    @delivery_address = DelivertAddress.find(params[:delivery_address_id])
+    @customer = current_customer
+    @order_day = @order.created_at.strftime('%Y/%m/%d')
   end
 
   def new
@@ -67,6 +72,7 @@ class Public::OrdersController < ApplicationController
 		cart_products.all_destroy
 	end
 
+
 	def index
 		@orders = current_customer.orders
 	end
@@ -75,5 +81,6 @@ class Public::OrdersController < ApplicationController
 
 	def order_params
 		params.require(:order).permit(:payment, :postcode, :address, :address_name, :total_price, :a_method)	end
+
 
 end
