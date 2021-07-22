@@ -34,6 +34,5 @@ class Public::DeliveryAddressesController < ApplicationController
 
   def delivery_address_params
     params.require(:delivery_address).permit(:postcode, :address, :name)
-    #エラーが起きたためrequire消しました
   end
 end

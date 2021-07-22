@@ -3,9 +3,8 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @ordered_products = @order.ordered_products
-    @customer = Customer.find(params[:customer_id])
-    @order_day = @customer.created_order
-    @delivery_address = DelivertAddress.find(params[:delivery_address_id])
+    @customer = current_customer
+    @order_day = @order.created_at
   end
 
   def new
