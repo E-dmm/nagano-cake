@@ -10,7 +10,7 @@ class Admin::OrderDetailsController < ApplicationController
   private
   
   def order_product_params
-    params.require(:order_product.permit(:production_status))
+    params.require(:order_product).permit(:production_status)
   end
 
 
