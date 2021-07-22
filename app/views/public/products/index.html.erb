@@ -1,32 +1,40 @@
 
-
-<div class="row">
-    <div class="col-md-3">
-        <table class="table table-bordered ml-3">
-            <thead>
-                <th>ジャンル検索</th>
-            </thead>
-            <tbody>
-                <% @genres.each do |genre| %>
-                      <th><%= genre.name %></th>
-                <% end %>
-            </tbody>
-        </table>
+<div class="container">
+    <div class="row">
+        <div class="md-3">
+            <table class="table table-bordered ml-3">
+                <thead>
+                    <th>ジャンル検索</th>
+                </thead>
+                <tbody>
+                    <% @genres.each do |genre| %>
+                    　　<tr>
+                          <th><%= genre.name %></th>
+                         </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h2>商品一覧（全<%= @products.count %>件）</h2>
+            <div id="container">
+        　　　<% @products.each do |product| %>
+        　　　<div class="item">
+            　　　   <div>
+            　　　     <%= link_to product_path(product.id) do %>
+                     <%= attachment_image_tag product, :image, size: "200x90" %>
+                    <% end %>
+                  </div>
+                  <div>
+                     <%= product.name %>
+                  </div>
+                  <div>
+                     ¥<%= product.price %>
+                  </div>
+                </div>
+        　　　<% end %>
+        　　</div>
+        　　<%= paginate @products %>
+        </div>
     </div>
-    <div class="col-md-8">
-
-        <h2>商品一覧（全<%= @products.count %>件）</h2>
-    　　　<% @products.each do |product| %>
-    　　　<div>
-    　　　     <%= link_to product_path(product.id) do %>
-             <%= attachment_image_tag product, :image, size: "340x220" %>
-            <% end %>
-             <%= product.name %>
-             <%= product.price %>
-    　　　</div>
-    　　　<% end %>
-    </div>
-
-    <%= paginate @products %>
-
 </div>
