@@ -6,6 +6,7 @@ class Product < ApplicationRecord
 
   def add_tax_price
     (self.price * 1.1).round
+    # selfにproductの情報が入る
   end
 
   enum is_active: { 販売中: true, 販売停止中: false }

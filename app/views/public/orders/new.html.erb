@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h2>注文情報入力</h2>
-    <%= form_with url: orders_path, method: :post do |f| %>
+    <%= form_with url: orders_confirm_path, method: :get do |f| %>
   		<h3>支払方法</h3>
       <%= f.radio_button :method, 0, checked: "checked" %>
 	  	<%= f.label :クレジットカード %>
@@ -16,20 +16,21 @@
 			  <%= current_customer.first_name %>
 	    <%= f.radio_button :a_method, 1 %>
 				<%= f.label :登録済住所から選択 %>
-				<!--f.collection_select((プロパティ名, オブジェクトの配列, value属性の項目, テキストの項目 [, オプション])-->
-				<%= f.collection_select :delivery_address, @addresses, :id, :delivery_address %>
+				<%= f.collection_select :delivery_address_id, DeliveryAddress.all, :id, :name %>
       <%= f.radio_button :a_method, 2 %>
 				<%= f.label :新しいお届け先 %>
+        <div class="form-group">
 				<%= f.label :"郵便番号(ハイフンなし)" %>
 				<%= f.text_field :postcode %>
-			<div class="form-group">
+			  </div>
+			  <div class="form-group">
 				<%= f.label :"住所", class: "control-label" %>
 				<%= f.text_field :address, class: "form-control-static" %>
-			</div>
-			<div class="form-group">
+			  </div>
+			  <div class="form-group">
 				<%= f.label :"宛名", class: "control-label" %>
 				<%= f.text_field :name, class: "form-control-static" %>
-			</div>
+			  </div>
       <%= f.submit "確認画面へ進む", class: 'btn btn-sm btn-success' %>
 		<% end %>
 	  </div>

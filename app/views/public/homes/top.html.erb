@@ -6,7 +6,9 @@
             </thead>
             <tbody>
                 <% @genres.each do |genre| %>
+                <tr>
                       <th><%= genre.name %></th>
+                </tr>
                 <% end %>
             </tbody>
         </table>
@@ -31,7 +33,7 @@
              <%= product.price %>
     　　　</div>
     　　　<% end %>
-    　　　
+
         <%= link_to "全ての商品を見る＞" %>
     </div>
 </div>

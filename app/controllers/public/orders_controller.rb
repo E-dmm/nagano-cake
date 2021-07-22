@@ -12,52 +12,42 @@ class Public::OrdersController < ApplicationController
     @cart_products = current_customer.cart_products
   end
 
-  def create
-		customer = current_customer
-		session[:order] = Order.new
-		cart_products = current_customer.cart_products
-		sum = 0
-		cart_products.each do |cart_products|
-			sum += (cart_product.product.price * 1.1).floor * cart_product.quantity
+  def confirm
+    @cart_products = CartProduct.where(customer_id:[current_customer.id])
+    @total_price = 0
+		@cart_products.each do |cart_product|
+			@total_price += (cart_product.product.price * 1.1).floor * cart_product.quantity
 		end
-		session[:order][:shipping] = 800
-		session[:order][:total_payment] = sum + session[:order][:shipping]
-		session[:order][:order_status] = 0
-		session[:order][:customer_id] = current_customer.id
-		session[:order][:payment_method] = params[:method].to_i
-		destination = params[:a_method].to_i
-		if destination == 0
-			session[:order][:post_code] = customer.postcode
-			session[:order][:address] = customer.address
-			session[:order][:name] = customer.last_name + customer.first_name
-		elsif destination == 1
-			address = DeliveryAddress.find(params[:delivery_address_for_order])
-			session[:order][:post_code] = address.postcode
-			session[:order][:address] = address.address
-			session[:order][:name] = address.name
-		elsif destination == 2
-			session[:new_address] = 2
-			session[:order][:post_code] = params[:post_code]
-			session[:order][:address] = params[:address]
-			session[:order][:name] = params[:name]
+		@shipping = 800
+		@order = order.new(order_params)
+		if @order.a_method == 0
+			@order.postcode = customer.postcode
+			@order.address = customer.address
+			@order.address_name = customer.last_name + customer.first_name
+		elsif @order.a_method == 1
+			address = CartProduct.find(customer_id:[delivery_address.id])
+			@order.postcode = address.postcode
+			@order.adress = address.address
+			@order.name = address.name
+		elsif @order.a_method == 2
+			@order.postcode = postcode
+			@order.address = address
+			@order.name = name
 		end
 		if session[:order][:post_code].presence && session[:order][:address].presence && session[:order][:name].presence
-			redirect_to public_orders_confirm_path
+			redirect_to orders_confirm_path
 		else
-			redirect_to new_public_order_path
+			redirect_to new_order_path
 		end
   end
 
-  def confirm
-      @cart_products = CartProduct.where(customer_id:[current_customer.id])
+  def create
   end
 
-
 	def thanks
-		order = Order.new(session[:order])
+		order = Order.new(order_params)
 		order.save
-		if session[:new_address]
-			delivery_address = current_customer.delivery_addresses.new
+		if @order.method == 2
 			delivery_address.postcode = order.postcode
 			delivery_address.address = order.address
 			delivery_address.name = order.name
@@ -74,11 +64,16 @@ class Public::OrdersController < ApplicationController
 			ordered_products.price = (cart_product.product.price * 1.1).floor
 			ordered_products.save
 		end
-		cart_products.destroy_all
+		cart_products.all_destroy
 	end
 
 	def index
 		@orders = current_customer.orders
 	end
+
+	private
+
+	def order_params
+		params.require(:order).permit(:payment, :postcode, :address, :address_name, :total_price, :a_method)	end
 
 end
