@@ -4,16 +4,15 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @orders = Order.page(params[:page]).per(5)
-    @order_day = @customer.created_order
-    @product = Product.find(params[:product_id])
+    # @order_day = @orders.created_at.strftime('%Y/%m/%d')
+    # @customer = current_customer
   end
 
   def show
-    @customer = Customer.find(params[:customer_id])
-    @order_day = @customer.created_order
-    @delivery_address = DelivertAddress.find(params[:delivery_address_id])
-    @product = Product.find(params[:product_id])
-    @ordered_product = OrderProduct.find(params[:ordered_product_id])
+    @customer = current_customer
+    @order = Order.find(params[:id])
+    @order_day = @order.created_at.strftime('%Y/%m/%d')
+    @ordered_products = @order.ordered_products
   end
 
   def update
@@ -26,7 +25,7 @@ class Admin::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order.permit(:order_status))
+    params.require(:order).permit(:order_status)
   end
 
 end
