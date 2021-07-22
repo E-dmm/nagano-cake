@@ -16,12 +16,11 @@
         <tr>
           <td><%= @order_day %></td>
           <td>
-            <%= @delivery_address.address %>
-            <%= @customer.last_name %>
-            <%= @customer.last_name %>
+            <%= order.address %>
+            <%= order.address_name %>
           </td>
           <td><%= @product.name %></td>
-          <td><%= form.select :order_status, Order.order_status.keys, class: "order_status-select" %></td>
+          <td><%= order.order_status %></td>
         </tr>
           <%= paginate @orders %>
         <% end %>

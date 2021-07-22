@@ -15,7 +15,7 @@ class Order < ApplicationRecord
 
   #会員の注文履歴詳細で使ってます
   def sum_of_order_price
-    total_price * shipping
+    total_price + shipping
   end
 
 end

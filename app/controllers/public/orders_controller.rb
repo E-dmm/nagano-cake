@@ -1,10 +1,16 @@
 class Public::OrdersController < ApplicationController
+	
+	def index
+		@orders = current_customer.orders
+		@order_day = @orders.created_at.strftime('%Y/%m/%d')
+		@product = @orders.pr
+	end
 
   def show
     @order = Order.find(params[:id])
     @ordered_products = @order.ordered_products
     @customer = current_customer
-    @order_day = @order.created_at
+    @order_day = @order.created_at.strftime('%Y/%m/%d')
   end
 
   def new
@@ -74,10 +80,6 @@ class Public::OrdersController < ApplicationController
 			ordered_products.save
 		end
 		cart_products.destroy_all
-	end
-
-	def index
-		@orders = current_customer.orders
 	end
 
 end
