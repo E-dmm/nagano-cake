@@ -9,15 +9,22 @@ Rails.application.routes.draw do
   end
 
 
-    devise_for :admins, controllers: {
-    registrations: 'adimins/registrations',
-    sessions: 'adimins/sessions'
+  # devise_for :admins
+  # , controllers: {
+  #   registrations: 'adimins/registrations',
+  #   sessions: 'adimins/sessions'
+  # }
+
+
+devise_for :admins, controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
   }
-
-
+  get 'admin/homes/top'
   namespace :admin do
     resources :homes
-    get '/' => 'homes#top'
+    # get '/' => 'homes#top'
     resources :products
     resources :genres
     resources :customers
