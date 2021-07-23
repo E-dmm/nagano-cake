@@ -50,7 +50,7 @@
         <td><%#= @ordered_product.quantity %></td>
         <td><%#= @ordered_product.sum_of_price %></td>
         <td>
-        <%= form_with model: @ordered_product, url: admin_order_details_path,local: true do |f| %>
+        <%= form_with model: @ordered_product, url: admin_order_detail_path, method: :patch, local: true do |f| %>
           <%= f.select :production_status, OrderedProduct.production_statuses.keys, class: "production_status-select" %>
           <%= f.submit "更新", class: "btn-sm btn-success" %>
         <% end %>
