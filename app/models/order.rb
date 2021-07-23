@@ -5,8 +5,9 @@ class Order < ApplicationRecord
 
   enum payment: { "クレジットカード": 0, "銀行振込": 1 }
 
-  # validate
-
+  validates :postcode, presence: true
+  validates :address, presence: true
+  validates :address_name, presence: true
 
   #注文ステータスで使います
   enum order_status: {

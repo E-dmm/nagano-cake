@@ -22,8 +22,6 @@ class Public::OrdersController < ApplicationController
 		@order.customer_id = current_customer.id
 		@order.shipping = @shipping
 		if params[:order][:a_method] == "0"
-      # 情報を階層で捉える
-			# モデルで送られてきた場合のパラメーターは入れ子構造になるので先頭にorder 送られてきた数値は文字列になる
 			@order.postcode = current_customer.postcode
 			@order.address = current_customer.address
 			@order.address_name = current_customer.last_name + current_customer.first_name
@@ -34,11 +32,9 @@ class Public::OrdersController < ApplicationController
 			@order.address_name = address.name
 		end
 
-
-
-		# if !@order.postcode.present? || !@order.address.present? || !@order.address_name.present?
-		# 	render :new
-		# end
+		if !@order.postcode.present? || !@order.address.present? || !@order.address_name.present?
+			render :new
+		end
 
   end
 

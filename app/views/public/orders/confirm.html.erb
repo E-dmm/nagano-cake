@@ -58,11 +58,7 @@
     </tr>
   </table>
   <%= form_with model: @order, url: orders_path, local: true do |f| %>
-  <!--デフォルトでpostがついている-->
-    <%= f.submit '注文を確認する', class: 'btn btn-sm btn-success' %>
-    <%#= f.hidden_field :order_id, :value => @order.id %>
-    <!--createに送りたい場合は必要,中間にconfirmがあるから-->
-    <!--order_paramsにデータを送る-->
+    <%= f.submit '注文を確定する', class: 'btn btn-sm btn-success' %>
     <%= f.hidden_field :customer_id, :value => @order.customer.id %>
     <%= f.hidden_field :payment, :value => @order.payment %>
     <%= f.hidden_field :postcode, :value => @order.postcode %>
