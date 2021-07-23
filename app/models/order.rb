@@ -2,6 +2,9 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   has_many :ordered_products
+  
+  validates :postcode, :address, presence: true
+  validates :postcode, length: {is: 7}, numericality: { only_integer: true }
 
   enum payment_method: { "クレジットカード": 0, "銀行振込": 1 }
 
