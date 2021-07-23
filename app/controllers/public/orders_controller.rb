@@ -1,21 +1,15 @@
 class Public::OrdersController < ApplicationController
 	
-	def index
-		@orders = current_customer.orders
-		@customer = current_customer
-	end
 
 	def index
-		@orders = Order.page(params[:page]).per(5)
-		# @order_day = @orders.created_at.strftime('%Y/%m/%d')
-		# @product = @orders.product
+		@orders = Order.all.page(params[:page]).per(5)
 	end
 
   def show
+    @customer = Customer.find(params[:id])
     @order = Order.find(params[:id])
-    @ordered_products = @order.ordered_products
-    @customer = current_customer
-    @order_day = @order.created_at.strftime('%Y/%m/%d')
+    @product = Product.find(params[:id])
+    @ordered_product = OrderedProduct.find(params[:id])
   end
 
   def new
@@ -86,9 +80,4 @@ class Public::OrdersController < ApplicationController
 		end
 		cart_products.destroy_all
 	end
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 12f9aaae84d99c0126aa9fabac4ea74d47cb62ba
 end

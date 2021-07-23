@@ -10,34 +10,34 @@
   </head>
   <body>
     <header>
-    <% if customer_signed_in? %>
-      <h7>ようこそ、<%= current_customer.last_name %>さん！</h7>
-    <% end %>
-      <div class="d-flex flex-row">
-        <div class="logo"><img src="/assets/nagano-cake2.png" alt="ロゴ画像"></div>
-        <nav class="d-flex flex-row float-right">
-          <ul class="d-flex justify-content-start" >
-            <% if customer_signed_in? %>
-              <li><%= link_to "マイページ", customer_path(current_customer) %></li>
-              <li><%= link_to "商品一覧", products_path %></li>
-              <li><%= link_to "カート", cart_products_path %></li>
-              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-            <% elsif  admin_signed_in? %>
-              <li><%= link_to "商品一覧", admin_products_path %></li>
-              <li><%= link_to "会員一覧", admin_customers_path %></li>
-              <li><%= link_to "注文履歴一覧", admin_homes_top_path %></li>
-              <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-             <% else %>
-              <li><%= link_to "About", homes_about_path %></li>
-              <li><%= link_to "商品一覧", products_path %></li>
-              <li><%= link_to "新規登録", new_customer_registration_path %></li>
-              <li><%= link_to "ログイン", new_customer_session_path %></li>
-             <% end %>
-          </ul>
-        </nav>
-        <div class="opa text-right "><%= link_to "管理者", new_admin_session_path %></div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#!"><img src="/assets/nagano-cake2.png" alt="ロゴ画像"></a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="d-flex justify-content-start" >
+          <% if customer_signed_in? %>
+          <li class="nav-item active"><%= link_to "マイページ", customer_path(current_customer) %></li>
+          <li class="nav-item active"><%= link_to "商品一覧", products_path %></li>
+          <li class="nav-item active"><%= link_to "カート", cart_products_path %></li>
+          <li class="nav-item active"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+          <% elsif  admin_signed_in? %>
+          <li class="nav-item active"><%= link_to "商品一覧", admin_products_path %></li>
+          <li class="nav-item active"><%= link_to "会員一覧", admin_customers_path %></li>
+          <li class="nav-item active"><%= link_to "注文履歴一覧", admin_homes_top_path %></li>
+          <li class="nav-item active"><%= link_to "ジャンル一覧", admin_genres_path %></li>
+          <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+          <% else %>
+          <li class="nav-item active"><%= link_to "About", homes_about_path %></li>
+          <li class="nav-item active"><%= link_to "商品一覧", products_path %></li>
+          <li class="nav-item active"><%= link_to "新規登録", new_customer_registration_path %></li>
+          <li class="nav-item active"><%= link_to "ログイン", new_customer_session_path %></li>
+          <% end %>
+          <div class="opa text-right "><%= link_to "管理者", new_admin_session_path %></div>
+        </ul>
       </div>
+    </nav>
     </header>
     <main>
       <%= yield %>

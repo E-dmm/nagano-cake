@@ -4,9 +4,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    # @order_day = @customer.created_order
     @order = Order.find(params[:id])
-    # @delivery_address = DelivertAddress.find(params[:id])
     @product = Product.find(params[:id])
     @ordered_product = OrderedProduct.find(params[:id])
   end

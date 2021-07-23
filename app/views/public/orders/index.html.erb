@@ -7,6 +7,7 @@
           <th>注文日</th>
           <th>配送先</th>
           <th>注文商品</th>
+          <th>支払金額</th>
           <th>ステータス</th>
           <th>注文詳細</th>
         </tr>
@@ -21,6 +22,7 @@
             <%= order.address_name %>
           </td>
           <td><%#= @product.name %>注文商品名入れる</td>
+          <td><%= order.total_price %></td>
           <td><%= order.order_status %></td>
           <td><%= link_to "表示する",  order_path(order), class: "btn-sm btn-primary" %></td>
         </tr>
