@@ -1,4 +1,4 @@
-<div class = "flex-fill">
+<div class = "container">
    <table class = "table-borderless">
     <h4>注文情報</h4>
     <tbody>
@@ -35,9 +35,6 @@
       </tr>
     </tbody>
   </table>
-</div>
-
-
   <table class="table table-bordered">
   <thead>
     <tr>
@@ -63,3 +60,20 @@
     <%# end %>
   </tbody>
 </table>
+<table class = "table-borderless"> 
+  <tr>
+     <th>商品合計</th>
+      <td><%= @product.add_tax_price * @ordered_product.quantity %></td>
+  </tr>
+  <tr>
+     <th>送料</th>
+      <td><%= @order.shipping %></td>
+  </tr>
+  <tr>
+    <th>請求金額合計</th>
+    <td><%= (@product.add_tax_price * @ordered_product.quantity)  +  @order.shipping  %></td>
+  </tr>
+      
+</table>
+    
+</div>
