@@ -8,15 +8,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
+  
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <a class="navbar-brand" href="#!"><img src="/assets/nagano-cake2.png" alt="ロゴ画像"></a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="d-flex justify-content-start" >
+          
+          <% if customer_signed_in? %>
+            <h7>ようこそ、<%= current_customer.last_name %>さん！</h7>
+          <% end %>
+          
           <% if customer_signed_in? %>
           <li class="nav-item active"><%= link_to "マイページ", customer_path(current_customer) %></li>
           <li class="nav-item active"><%= link_to "商品一覧", products_path %></li>
@@ -39,11 +42,14 @@
       </div>
     </nav>
     </header>
+    
     <main>
       <%= yield %>
     </main>
+    
     <footer>
       ながのけーき
     </footer>
+    
   </body>
 </html>
