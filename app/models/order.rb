@@ -17,8 +17,12 @@ class Order < ApplicationRecord
   scope :created_order, -> { where(created_at: Time.zone.order) } # なんて書くのこれ
 
   #会員の注文履歴詳細で使ってます
+  # def sum_of_order_price
+  #   total_price * shipping
+  # end
+  
   def sum_of_order_price
-    total_price * shipping
+    total_price * quantity
   end
 
 end

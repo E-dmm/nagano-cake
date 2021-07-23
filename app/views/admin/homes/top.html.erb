@@ -4,7 +4,6 @@
     <table class='table table-hover table-inverse'>
       <thead>
         <tr>
-          <th></th>
           <th>購入日時</th>
           <th>購入者</th>
           <th>注文個数</th>
@@ -12,14 +11,15 @@
         </tr>
       </thead>
       <tbody>
-        <!--< @orders.erch do |order| %>-->
+        <% @orders.each do |order| %>
         <tr>
-          <!--<td><= link_to order.created_at, order_path(@order) %></td>-->
-          <!--<td><= order.customer_id.name %></td>-->
-          <!--<td><= order.quantity %></td>-->
-          <!--<td><= order.order_status %></td>-->
+          <!--<td><=# link_to order.created_at, order_path(@order) %></td>-->
+          <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), admin_order_path(order) %></td>
+          <td><%= order.address_name %></td>
+          <td><%= order.ordered_product_ids.count %></td>
+          <td><%= order.order_status %></td>
         </tr>
-        <!--< end %>-->
+        <% end %>
       </tbody>
     </table>
     <%= paginate @orders %>

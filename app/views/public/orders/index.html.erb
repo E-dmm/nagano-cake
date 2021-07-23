@@ -14,14 +14,15 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <td><%= @order_day %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>
-            <%= @delivery_address.address %>
-            <%= @customer.last_name %>
-            <%= @customer.last_name %>
+            〒<%= order.postcode %>
+            <%= order.address %>
+            <%= order.address_name %>
           </td>
-          <td><%= @product.name %></td>
-          <td><%= form.select :order_status, Order.order_status.keys, class: "order_status-select" %></td>
+          <td><%#= @product.name %>注文商品名入れる</td>
+          <td><%= order.order_status %></td>
+          <td><%= link_to "表示する",  order_path(order), class: "btn-sm btn-primary" %></td>
         </tr>
           <%= paginate @orders %>
         <% end %>

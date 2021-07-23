@@ -1,4 +1,9 @@
 class Public::OrdersController < ApplicationController
+	
+	def index
+		@orders = current_customer.orders
+		@customer = current_customer
+	end
 
   def show
     @order = Order.find(params[:id])
@@ -77,8 +82,5 @@ class Public::OrdersController < ApplicationController
 		cart_products.destroy_all
 	end
 
-	def index
-		@orders = current_customer.orders
-	end
 
 end
