@@ -2,17 +2,13 @@ class Admin::OrdersController < ApplicationController
 
   # before_action :authenticate_admin
 
-  def index
-    @orders = Order.page(params[:page]).per(5)
-    # @order_day = @orders.created_at.strftime('%Y/%m/%d')
-    # @customer = current_customer
-  end
-
   def show
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
+    # @order_day = @customer.created_order
     @order = Order.find(params[:id])
-    @order_day = @order.created_at.strftime('%Y/%m/%d')
-    @ordered_products = @order.ordered_products
+    # @delivery_address = DelivertAddress.find(params[:id])
+    @product = Product.find(params[:id])
+    @ordered_product = OrderedProduct.find(params[:id])
   end
 
   def update

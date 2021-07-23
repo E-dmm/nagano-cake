@@ -4,18 +4,18 @@
     <tbody>
       <tr>
         <th>購入者</th>
-        <td><%= @order.address_name %></td>
+        <td><%= @customer.last_name %></td>
       </tr>
       <tr>
         <th>注文日</th>
-        <td><%= @order_day %></td>
+        <td><%= @order.created_at.strftime("%Y-%m-%d%H:%M") %></td>
       </tr>
       <tr>
         <th>配送先</th>
         <td>
           <%= @order.address %>
           <%= @customer.last_name %>
-          <%= @customer.last_name %>
+          <%= @customer.first_name %>
         </td>
       </tr>
       <tr>
@@ -25,9 +25,9 @@
       <tr>
         <th>注文ステータス</th>
         <td>
-          <%= form_with model: @order, url: admin_order_path,local: true do |f| %>
-           <%= f.select :order_status, Order.order_statuses.keys, class: "order_status-select" %>
-           <%= f.submit "更新" , class: "btn-sm btn-success" %>
+          <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
+           <%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %>
+           <%= f.submit "更新" , class: "btn btn-sucsess" %>
           <% end %>
         </td>
       </tr>
@@ -45,16 +45,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @ordered_products %></td>
-        <td><%#= @ordered_product.price %></td>
-        <td><%#= @ordered_product.quantity %></td>
-        <td><%#= @ordered_product.sum_of_price %></td>
-        <td>
+        <td><%= @product.name %></td>
+        <td><%= @product.add_tax_price %></td>
+        <td><%= @ordered_product.quantity %></td>
+        <td><%= @product.add_tax_price * @ordered_product.quantity %></td>
         <%= form_with model: @ordered_product, url: admin_order_detail_path, method: :patch, local: true do |f| %>
-          <%= f.select :production_status, OrderedProduct.production_statuses.keys, class: "production_status-select" %>
-          <%= f.submit "更新", class: "btn-sm btn-success" %>
+          <td><%= f.select :production_status, OrderedProduct.production_statuses.keys, class: "production_status-select" %></td>
+          <td><%= f.submit "更新", class: "btn btn-sucsess" %></td>
         <% end %>
-        </td>
       </tr>
     </tbody>
   </table>

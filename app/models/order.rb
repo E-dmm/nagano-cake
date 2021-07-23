@@ -2,6 +2,9 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   has_many :ordered_products
+  
+  validates :postcode, :address, presence: true
+  validates :postcode, length: {is: 7}, numericality: { only_integer: true }
 
   enum payment_method: { "クレジットカード": 0, "銀行振込": 1 }
 
@@ -12,6 +15,7 @@ class Order < ApplicationRecord
   }
 
   scope :created_order, -> { where(created_at: Time.zone.order) }
+
 
   #会員・管理の注文詳細で使ってます
   def sum_of_order_price

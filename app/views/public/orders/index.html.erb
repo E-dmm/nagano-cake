@@ -14,8 +14,9 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <td><%#= @order_day %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>
+            〒<%= order.postcode %>
             <%= order.address %>
             <%= order.address_name %>
           </td>

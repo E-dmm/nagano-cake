@@ -1,4 +1,9 @@
 class Public::OrdersController < ApplicationController
+	
+	def index
+		@orders = current_customer.orders
+		@customer = current_customer
+	end
 
 	def index
 		@orders = Order.page(params[:page]).per(5)
@@ -82,4 +87,8 @@ class Public::OrdersController < ApplicationController
 		cart_products.destroy_all
 	end
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 12f9aaae84d99c0126aa9fabac4ea74d47cb62ba
 end
