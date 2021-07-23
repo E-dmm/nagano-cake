@@ -2,12 +2,6 @@ class Admin::OrdersController < ApplicationController
 
   # before_action :authenticate_admin
 
-  # def index
-  #   @orders = Order.page(params[:page]).per(5)
-  #   @order_day = @customer.created_order
-  #   @product = Product.find(params[:product_id])
-  # end
-
   def show
     @customer = Customer.find(params[:id])
     # @order_day = @customer.created_order

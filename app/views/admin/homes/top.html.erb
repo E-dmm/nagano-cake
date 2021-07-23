@@ -13,7 +13,6 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <!--<td><=# link_to order.created_at, order_path(@order) %></td>-->
           <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), admin_order_path(order) %></td>
           <td><%= order.address_name %></td>
           <td><%= order.ordered_product_ids.count %></td>

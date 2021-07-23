@@ -1,8 +1,8 @@
 class Admin::OrderDetailsController < ApplicationController
 
   def update
-    @order_product = OrderedProduct.find(params[:id])
-    @order_product.update(ordered_product_params)
+    @ordered_product = OrderedProduct.find(params[:id])
+    @ordered_product.update(ordered_product_params)
     redirect_to request.referer
   end
   
