@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations',
     sessions: 'customers/sessions'
   }
-  
+
   devise_scope :customer do
     get '/customers/logout' => 'devise/sessions#destroy', as: :logout
   end
@@ -38,14 +38,14 @@ devise_for :admins, controllers: {
     resources :homes
     resources :products
     resources :customers
-    get 'customers/my_page'
+    get 'customers/my_page' => "customers#show"
     get 'unsubscribe' => 'customers#unsubscribe'
     put "/customers/:id/withdraw" => "customers#withdraw", as: 'customers_withdraw'
     resources :cart_products
     delete 'cart_products' => 'cart_products#all_destroy', as: 'all_destroy'
     resources :genres
     get 'orders/thanks' => 'orders#thanks'
-    get 'orders/confirm' => 'orders#confirm'
+    post 'orders/confirm' => 'orders#confirm'
     resources :orders
     resources :delivery_addresses
   end

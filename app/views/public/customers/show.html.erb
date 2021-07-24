@@ -1,15 +1,12 @@
-<div>マイページ</div>
-<div class="container mb-3">
-     <div class="row">
-         <div class="mr-4">登録情報</div>
+<div class="my">マイページ</div>
+     <div class="row info">
+         <div class="info mr-3">登録情報</div>
          <div><%= link_to "編集する",edit_customer_path(current_customer), class: 'btn btn-success' %> </div>
      </div>
-</div>
-
-<table table width="900" height="150">
+<table class="mypage">
     <tr>
-        <th width="200">氏名</th>
-        <td width="700"><%= @customer.last_name %> <%= @customer.first_name %> </td>
+        <th>氏名</th>
+        <td><%= @customer.last_name %> <%= @customer.first_name %> </td>
     </tr>
     <tr>
         <th>カナ</th>
@@ -33,5 +30,5 @@
     </tr>
 </table>
 
-<div>配送先　<%= link_to "一覧を見る",delivery_addresses_path, class: 'btn btn-primary' %> </div>
-<div>注文履歴　<%= link_to "一覧を見る", orders_path, class: 'btn btn-primary' %> </div>
+<div class="index"><span>配送先　</span><%= link_to "一覧を見る",delivery_addresses_path, class: 'btn btn-primary' %> </div>
+<div class="index"><span>注文履歴</span><%= link_to "一覧を見る", orders_path, class: 'btn btn-primary' %> </div>

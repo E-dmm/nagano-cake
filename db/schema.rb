@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_053504) do
     t.string "postcode"
     t.string "address"
     t.string "phone_number"
-    t.boolean "is_delete", default: false, null: false
+    t.boolean "is_delete"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_053504) do
     t.string "postcode"
     t.string "address"
     t.integer "total_price"
-    t.integer "address_name"
+    t.string "address_name"
     t.integer "shipping"
     t.integer "order_status"
     t.datetime "created_at", null: false
