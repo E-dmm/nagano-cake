@@ -1,16 +1,16 @@
 class Admin::OrderDetailsController < ApplicationController
 
   def update
-    @order_product = find(params[:id])
-    @order_product.update(order_product_params)
+    @ordered_product = OrderedProduct.find(params[:id])
+    @ordered_product.update(ordered_product_params)
     redirect_to request.referer
   end
-  
-  
+
+
   private
-  
-  def order_product_params
-    params.require(:order_product.permit(:production_status))
+
+  def ordered_product_params
+    params.require(:ordered_product).permit(:production_status)
   end
 
 

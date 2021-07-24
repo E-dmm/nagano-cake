@@ -21,52 +21,54 @@
 #     postcode: '0000000',
 #     address: 'test',
 #     phone_number: '00000000000',
-#     is_delete: 'false'
+#     # is_delete: 'false'
 #     )
 
-# Product.create!(
-#     genre_id: 1,
-#     name: 'test',
-#     text: 'test',
-#     price: 100,
-#     is_active: '販売中',
-#     )
+Genre.create!(
+    name: 'sample',
+    )
 
-# CartProduct.create!(
-#     product_id: 1,
-#     customer_id: 1,
-#     quantity: 1
-#     )
+Product.create!(
+    genre_id: 1,
+    name: 'test',
+    text: 'test',
+    price: 100,
+    is_active: '販売中',
+    )
 
-# Order.create!(
-#     customer_id: 1,
-#     payment: 1,
-#     postcode: '1111111',
-#     address: 'tokyo',
-#     total_price: 910,
-#     address_name: 'hoge',
-#     shipping: 800,
-#     order_status: 1,
-# )
+CartProduct.create!(
+    product_id: 1,
+    customer_id: 1,
+    quantity: 1
+    )
 
-# DeliveryAddress.create!(
-#     customer_id: 1,
-#     postcode: '1111111',
-#     name: 'dmm',
-#     address: 'osaka'
-#     )
+Order.create!(
+    customer_id: 1,
+    payment: 1,
+    postcode: '1111111',
+    address: 'tokyo',
+    total_price: 910,
+    address_name: 'hoge',
+    shipping: 800,
+    order_status: 1,
+)
 
-# Genre.create!(
-#     name: 'sample',
-#     )
+DeliveryAddress.create!(
+    customer_id: 1,
+    postcode: '1111111',
+    name: 'dmm',
+    address: 'osaka'
+    )
 
-# OrderedProduct.create!(
-#     product_id: 1,
-#     order_id: 1,
-#     price: 100,
-#     quantity: 1,
-#     production_status: 0,
-#     )
+
+
+OrderedProduct.create!(
+    product_id: 1,
+    order_id: 1,
+    price: 100,
+    quantity: 1,
+    production_status: 0,
+    )
 
 
 

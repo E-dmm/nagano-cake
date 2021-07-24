@@ -1,10 +1,15 @@
 class Public::OrdersController < ApplicationController
 
-	def index
-		@orders = current_customer.orders
-		@order_day = @orders.created_at.strftime('%Y/%m/%d')
-		@product = @orders.pr
-	end
+  def index
+	@orders = Order.all.page(params[:page]).per(5)
+  end
+
+
+  def show
+    @customer = Customer.find(params[:id])
+    @order = Order.find(params[:id])
+    @ordered_products = @order.ordered_products
+  end
 
   def new
   	@order = Order.new
@@ -12,13 +17,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+     @order =Order.new(order_params)
     @cart_products = CartProduct.where(customer_id:[current_customer.id])
     @total_price = 0
 		@cart_products.each do |cart_product|
 			@total_price += (cart_product.product.price * 1.1).floor * cart_product.quantity
 		end
 		@shipping = 800
-		@order = Order.new(order_params)
+# 		@order = Order.new(order_params)
 		@order.customer_id = current_customer.id
 		@order.shipping = @shipping
 		if params[:order][:a_method] == "0"
@@ -31,7 +37,6 @@ class Public::OrdersController < ApplicationController
 			@order.address = address.address
 			@order.address_name = address.name
 		end
-
 		if !@order.postcode.present? || !@order.address.present? || !@order.address_name.present?
 			render :new
 		end
@@ -59,22 +64,11 @@ class Public::OrdersController < ApplicationController
 	end
 
 
-	def index
-		@orders = current_customer.orders
-	end
-
-  def show
-    @order = Order.find(params[:id])
-    @ordered_products = @order.ordered_products
-    @customer = current_customer
-    @order_day = @order.created_at.strftime('%Y/%m/%d')
-  end
-
 	private
 
 	def order_params
 		params.require(:order).permit(:payment, :postcode, :address, :address_name, :total_price, :order_status, :customer_id, :shipping)
 	end
 
-
 end
+

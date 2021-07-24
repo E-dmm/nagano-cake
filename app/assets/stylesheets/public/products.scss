@@ -11,5 +11,18 @@
 }
 
 .item {
-	width: 17%;
+	width: 25%;
+}
+
+.img-area {
+    display: inline-block;
+}
+.img-area img {
+    width: 80%;
+    display: block;
+    margin: auto;
+    transition: 1s;
+}
+.img-area > img:hover {
+    width: 100%;
 }

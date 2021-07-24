@@ -29,6 +29,7 @@
   opacity: 0.1;
  }
 
+
  .mx-auto {
   height: 400px;
  }
@@ -37,3 +38,39 @@
   line-height: 400px;
  }
 
+ 
+ body{
+  background-color: #d7cebb;
+ }
+ 
+ header {
+  background-color: #dbedf0;
+  margin-bottom: 20px;
+ }
+ 
+ footer {
+  padding: 30px;
+  background-color: #dbedf0;
+ }
+ 
+
+.image1 {
+  background-image: url(test1.jpg);
+}
+.image2 {
+  background-image: url(test2.jpg);
+}
+.image3 {
+  background-image: url(test3.jpg);
+}
+.image4 {
+  background-image: url(test4.jpg);
+}
+.image5 {
+  background-image: url(test5.jpg);
+}
+
+#about{
+  height: 500px;
+  margin-bottom: 30px;
+}
