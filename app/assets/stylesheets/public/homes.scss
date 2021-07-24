@@ -3,12 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-container {
-  background-image: image-url('natukumo1.png');
+  background-image: image-url('test1.jpg');
   height: 400px;
-  width: 600px;
+  width: 900px;
   background-size:cover;
 }
 
+.top-text {
+    padding: 100px 300px 150px 30px;
+    color : #ffffff;
+    font-size : 20px;
+      text-shadow    : 
+       2px  2px 1px #003366,
+      -2px  2px 1px #003366,
+       2px -2px 1px #003366,
+      -2px -2px 1px #003366,
+       2px  0px 1px #003366,
+       0px  2px 1px #003366,
+      -2px  0px 1px #003366,
+       0px -2px 1px #003366;
+}
 // #container {
 // 	display: flex;
 // 	width: 100%;
