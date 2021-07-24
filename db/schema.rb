@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_053504) do
     t.string "postcode"
     t.string "address"
     t.integer "total_price"
-    t.integer "address_name"
+    t.string "address_name"
     t.integer "shipping"
     t.integer "order_status"
     t.datetime "created_at", null: false

@@ -37,7 +37,6 @@ class Public::OrdersController < ApplicationController
 			@order.address = address.address
 			@order.address_name = address.name
 		end
-
 		if !@order.postcode.present? || !@order.address.present? || !@order.address_name.present?
 			render :new
 		end
