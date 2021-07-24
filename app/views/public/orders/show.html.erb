@@ -1,22 +1,22 @@
-<div class = "table_width">
+<div class = "container">
   <table class="table table-bordered">
     <h4>注文情報</h4>
     <tbody>
       <tr>
         <th>注文日</th>
-        <td><%= @order_day %></td>
+        <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
       </tr>
       <tr>
         <th>配送先</th>
         <td>
           <%= @order.address %>
           <%= @customer.last_name %>
-          <%= @customer.last_name %>
+          <%= @customer.first_name %>
         </td>
       </tr>
       <tr>
         <th>支払い方法</th>
-        <td>銀行振込</td>
+        <td><%= @order.payment %></td>
       </tr>
       <tr>
         <th>ステータス</th>
@@ -46,18 +46,20 @@
   <table class="table table-bordered">
     <h4>注文内容</h4>
     <thead>
-        <th>商品</th>
+        <th>商品名</th>
         <th>単価（税込）</th>
         <th>個数</th>
         <th>小計</th>
       </tr>
     </thead>
     <tbody>
+      <%# @product.each do |product| %>
       <tr>
-        <td><%= @order %></td>
-        <td><%#= @ordered_products.price %></td>
-        <td><%#= @ordered_products.quantity %></td>
-        <td><%= @order.sum_of_order_price %></td>
+        <td><%= @product.name %></td>
+        <td><%= @product.add_tax_price %></td>
+        <td><%= @ordered_product.quantity %></td>
+        <td><%= @product.add_tax_price * @ordered_product.quantity %></td>
       </tr>
+      <%# end %>
   </table>
 </div>

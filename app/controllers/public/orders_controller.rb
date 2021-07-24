@@ -1,15 +1,16 @@
 class Public::OrdersController < ApplicationController
 
 	def index
-		@orders = current_customer.orders
-		@customer = current_customer
+		@orders = Order.all.page(params[:page]).per(5)
 	end
 
-	def index
-		@orders = Order.page(params[:page]).per(5)
-		# @order_day = @orders.created_at.strftime('%Y/%m/%d')
-		# @product = @orders.product
-	end
+
+  def show
+    @customer = Customer.find(params[:id])
+    @order = Order.find(params[:id])
+    @product = Product.find(params[:id])
+    @ordered_product = OrderedProduct.find(params[:id])
+  end
 
   def new
   	@order = Order.new
@@ -63,18 +64,6 @@ class Public::OrdersController < ApplicationController
 	def thanks
 	end
 
-
-
-	def index
-		@orders = current_customer.orders
-	end
-
-  def show
-    @order = Order.find(params[:id])
-    @ordered_products = @order.ordered_products
-    @customer = current_customer
-    @order_day = @order.created_at.strftime('%Y/%m/%d')
-  end
 
 	private
 

@@ -6,23 +6,23 @@
 # # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # # #   Character.create(name: 'Luke', movie: movies.first)
 
-# Admin.create!(
-#     email: 'test@test.com',
-#     password: 'testtest')
+Admin.create!(
+    email: 'test@test.com',
+    password: 'testtest')
 
 
-# Customer.create!(
-#     email: 'test@test.com',
-#     password: 'testtest',
-#     last_name: 'test',
-#     first_name: 'test',
-#     last_name_kana: 'test',
-#     first_name_kana: 'test',
-#     postcode: '0000000',
-#     address: 'test',
-#     phone_number: '00000000000',
-#     # is_delete: 'false'
-#     )
+Customer.create!(
+    email: 'test@test.com',
+    password: 'testtest',
+    last_name: 'test',
+    first_name: 'test',
+    last_name_kana: 'test',
+    first_name_kana: 'test',
+    postcode: '0000000',
+    address: 'test',
+    phone_number: '00000000000',
+    # is_delete: 'false'
+    )
 
 # Product.create!(
 #     genre_id: 1,

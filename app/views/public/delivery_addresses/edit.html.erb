@@ -1,21 +1,22 @@
-<main>
-  <table>
+<div class = "container">
+  <h4>配送先編集</h4>
+  <table class = "table table-borderless">
     <tbody>
       <%= form_with model:@delivery_address, url: delivery_address_path, local:true do |f| %>
-      <tr>
-        <th>郵便番号（ハイフンなし）</th>
-        <td><%= f.number_field :postcode %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
-      </tr>
-      <tr>
-        <th>宛名</th>
-        <td><%= f.text_field :name %></td>
-        <td><%= f.submit "変更内容を保存", class: "btn btn-success" %></td>
-      </tr>
+        <tr>
+          <th>郵便番号（ハイフンなし）</th>
+          <td><%= f.number_field :postcode %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <th>宛名</th>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.submit "変更内容を保存", class: "btn btn-success" %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>
-</main>
+</div>

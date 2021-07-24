@@ -1,12 +1,12 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
+<div class='container'>
     <h2>注文履歴一覧</h2>
-    <table class='table table-bordered'>
-      <thead>
+    <table class='table table-hover table-borderless'>
+      <thead class="thead-light">
         <tr>
           <th>注文日</th>
           <th>配送先</th>
           <th>注文商品</th>
+          <th>支払金額</th>
           <th>ステータス</th>
           <th>注文詳細</th>
         </tr>
@@ -21,6 +21,7 @@
             <%= order.address_name %>
           </td>
           <td><%#= @product.name %>注文商品名入れる</td>
+          <td><%= order.total_price %></td>
           <td><%= order.order_status %></td>
           <td><%= link_to "表示する",  order_path(order), class: "btn-sm btn-primary" %></td>
         </tr>
@@ -28,5 +29,4 @@
       </tbody>
     </table>
     <%= paginate @orders %>
-  </div>
 </div>
