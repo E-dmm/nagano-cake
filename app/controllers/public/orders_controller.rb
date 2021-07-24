@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @order = Order.find(params[:id])
-    @ordered_product = OrderedProduct.find(params[:id])
+    @ordered_products = @order.ordered_products
   end
 
   def new
@@ -17,13 +17,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+     @order =Order.new(order_params)
     @cart_products = CartProduct.where(customer_id:[current_customer.id])
     @total_price = 0
 		@cart_products.each do |cart_product|
 			@total_price += (cart_product.product.price * 1.1).floor * cart_product.quantity
 		end
 		@shipping = 800
-		@order = Order.new(order_params)
+# 		@order = Order.new(order_params)
 		@order.customer_id = current_customer.id
 		@order.shipping = @shipping
 		if params[:order][:a_method] == "0"

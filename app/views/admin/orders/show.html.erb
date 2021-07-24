@@ -47,27 +47,25 @@
     </tr>
   </thead>
 
-  <!--会員注文履歴詳細からペーストする-->
-
   <tbody>
-    <%# @products.each do |product| %>
+    <% @ordered_products.each do |ordered_product| %>
     <tr>
-      <td><%#= product.name %></td>
-      <td><%#= product.add_tax_price %></td>
-      <td><%#= @ordered_product.quantity %></td>
-      <td><%#= product.add_tax_price * @ordered_product.quantity %></td>
-          <%#= form_with model: @ordered_product, url: admin_order_detail_path, method: :patch, local: true do |f| %>
-            <td><%#= f.select :production_status, OrderedProduct.production_statuses.keys, class: "production_status-select" %></td>
-            <td><%#= f.submit "更新", class: "btn-sm btn-success" %></td>
-          <%# end %>
+      <td><%= ordered_product.product.name %></td>
+      <td><%= ordered_product.product.add_tax_price %></td>
+      <td><%= ordered_product.quantity %></td>
+      <td><%= ordered_product.product.add_tax_price * ordered_product.quantity %></td>
+          <%= form_with model: ordered_product, url: admin_order_detail_path, method: :patch, local: true do |f| %>
+            <td><%= f.select :production_status, OrderedProduct.production_statuses.keys, class: "production_status-select" %></td>
+            <td><%= f.submit "更新", class: "btn-sm btn-success" %></td>
+          <% end %>
     </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>
 <table class = "table-borderless">
   <tr>
      <th>商品合計</th>
-      <td><%#= @product.sum(@product.add_tax_price * @ordered_product.quantity) %></td>
+     <td><%= @order.total_price %></td>
   </tr>
   <tr>
      <th>送料</th>
@@ -75,7 +73,7 @@
   </tr>
   <tr>
     <th>請求金額合計</th>
-    <td><%= (@product.add_tax_price * @ordered_product.quantity)  +  @order.shipping  %></td>
+    <td><%#= (@product.add_tax_price * @ordered_product.quantity)  +  @order.shipping  %></td>
   </tr>
 </table>
 </div>

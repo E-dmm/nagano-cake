@@ -20,7 +20,11 @@
             <%= order.address %>
             <%= order.address_name %>
           </td>
-          <td><%#= @product.name %>注文商品名入れる</td>
+          <td>
+            <% order.ordered_products.each do |o| %>
+              <%= o.product.name %>
+            <% end %>
+          </td>
           <td><%= order.total_price %></td>
           <td><%= order.order_status %></td>
           <td><%= link_to "表示する",  order_path(order), class: "btn-sm btn-primary" %></td>
