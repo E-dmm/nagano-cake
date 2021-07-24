@@ -6,7 +6,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @customer = @order.customer
     @product = Product.find(params[:id])
-    @ordered_product = OrderedProduct.find(params[:id])
+    @ordered_products = @order.ordered_products
   end
 
   def update
