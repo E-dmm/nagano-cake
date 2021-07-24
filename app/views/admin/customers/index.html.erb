@@ -19,7 +19,13 @@
             <%= customer.last_name %> <%= customer.first_name %></td>
           <% end %>
         <td><%= customer.email %></td>
-        <td><%= customer.is_delete %></td>
+        <td>
+          <% if customer.is_delete == true %>
+            退会
+          <% else %>
+            有効
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>

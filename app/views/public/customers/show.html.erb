@@ -1,27 +1,34 @@
-<table class="table table-bordered">
-     <div>登録情報<%= link_to "編集する",edit_customer_path(current_customer) %> </div>
+<div>マイページ</div>
+<div class="container mb-3">
+     <div class="row">
+         <div class="mr-4">登録情報</div>
+         <div><%= link_to "編集する",edit_customer_path(current_customer), class: 'btn btn-success' %> </div>
+     </div>
+</div>
+
+<table table width="900" height="150">
     <tr>
-        <td>氏名</td>
-        <td><%= @customer.last_name %> <%= @customer.first_name %> </td>
+        <th width="200">氏名</th>
+        <td width="700"><%= @customer.last_name %> <%= @customer.first_name %> </td>
     </tr>
     <tr>
-        <td>カナ</td>
+        <th>カナ</th>
         <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
     </tr>
     <tr>
-        <td>郵便番号</td>
+        <th>郵便番号</th>
         <td><%= @customer.postcode %></td>
     </tr>
     <tr>
-        <td>住所</td>
+        <th>住所</th>
         <td><%= @customer.address %></td>
     </tr>
     <tr>
-        <td>電話番号</td>
+        <th>電話番号</th>
         <td><%= @customer.phone_number %></td>
     </tr>
     <tr>
-        <td>メールアドレス</td>
+        <th>メールアドレス</th>
         <td><%= @customer.email %></td>
     </tr>
 </table>

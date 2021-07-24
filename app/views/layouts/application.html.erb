@@ -13,8 +13,9 @@
     <% if customer_signed_in? %>
       <h7>ようこそ、<%= current_customer.last_name %>さん！</h7>
     <% end %>
-      <div>
-        <nav class="d-flex flex-row">
+      <div class="d-flex flex-row">
+        <div class="logo"><img src="/assets/nagano-cake2.png" alt="ロゴ画像"></div>
+        <nav class="d-flex flex-row float-right">
           <ul class="d-flex justify-content-start" >
             <% if customer_signed_in? %>
               <li><%= link_to "マイページ", customer_path(current_customer) %></li>

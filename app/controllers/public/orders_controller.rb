@@ -2,8 +2,13 @@ class Public::OrdersController < ApplicationController
 
 	def index
 		@orders = current_customer.orders
-		@order_day = @orders.created_at.strftime('%Y/%m/%d')
-		@product = @orders.pr
+		@customer = current_customer
+	end
+
+	def index
+		@orders = Order.page(params[:page]).per(5)
+		# @order_day = @orders.created_at.strftime('%Y/%m/%d')
+		# @product = @orders.product
 	end
 
   def new
@@ -59,6 +64,7 @@ class Public::OrdersController < ApplicationController
 	end
 
 
+
 	def index
 		@orders = current_customer.orders
 	end
@@ -75,6 +81,5 @@ class Public::OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(:payment, :postcode, :address, :address_name, :total_price, :order_status, :customer_id, :shipping)
 	end
-
 
 end

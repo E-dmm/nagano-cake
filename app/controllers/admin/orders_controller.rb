@@ -2,16 +2,13 @@ class Admin::OrdersController < ApplicationController
 
   # before_action :authenticate_admin
 
-  def index
-    @orders = Order.page(params[:page]).per(5)
-  end
-
   def show
-    @customer = Customer.find(params[:customer_id])
-    @order_day = @customer.created_order
-    @delivery_address = DelivertAddress.find(params[:delivery_address_id])
-    @product = Product.find(params[:product_id])
-    @ordered_product = OrderProduct.find(params[:ordered_product_id])
+    @customer = Customer.find(params[:id])
+    # @order_day = @customer.created_order
+    @order = Order.find(params[:id])
+    # @delivery_address = DelivertAddress.find(params[:id])
+    @product = Product.find(params[:id])
+    @ordered_product = OrderedProduct.find(params[:id])
   end
 
   def update
@@ -24,7 +21,7 @@ class Admin::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order.permit(:order_status))
+    params.require(:order).permit(:order_status)
   end
 
 end

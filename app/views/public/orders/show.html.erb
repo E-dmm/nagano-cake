@@ -54,10 +54,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @ordered_products %></td>
+        <td><%= @order %></td>
         <td><%#= @ordered_products.price %></td>
         <td><%#= @ordered_products.quantity %></td>
-        <td><%#= sum_of_price %></td>
-      <>
+        <td><%= @order.sum_of_order_price %></td>
+      </tr>
   </table>
 </div>

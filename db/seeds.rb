@@ -21,7 +21,7 @@
 #     postcode: '0000000',
 #     address: 'test',
 #     phone_number: '00000000000',
-#     is_delete: 'false'
+#     # is_delete: 'false'
 #     )
 
 # Product.create!(

@@ -2,6 +2,9 @@ class OrderedProduct < ApplicationRecord
 
   belongs_to :order
   belongs_to :product
+  
+  validates :product_id, :order_id, :quantity, :price, presence: true
+  validates :price, :quantity, numericality: { only_integer: true }
 
   def sum_of_price
     price * quantity
