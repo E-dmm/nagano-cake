@@ -86,9 +86,4 @@ class Public::OrdersController < ApplicationController
 		end
 		cart_products.destroy_all
 	end
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 12f9aaae84d99c0126aa9fabac4ea74d47cb62ba
 end

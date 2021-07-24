@@ -38,7 +38,7 @@ devise_for :admins, controllers: {
     resources :homes
     resources :products
     resources :customers
-    get 'customers/my_page'
+    get 'customers/my_page' => "customers#show"
     get 'unsubscribe' => 'customers#unsubscribe'
     put "/customers/:id/withdraw" => "customers#withdraw", as: 'customers_withdraw'
     resources :cart_products

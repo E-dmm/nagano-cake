@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="md-3">
+        <div class="col-md-2">
             <table class="table table-bordered ml-3">
                 <thead>
                     <th>ジャンル検索</th>
@@ -15,14 +15,14 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="col-10">
             <h2>商品一覧（全<%= @products.count %>件）</h2>
             <div id="container">
         　　　<% @products.each do |product| %>
         　　　<div class="item">
-            　　　   <div>
+            　　　   <div class="img-area">
             　　　     <%= link_to product_path(product.id) do %>
-                     <%= attachment_image_tag product, :image, size: "200x90" %>
+                     <%= attachment_image_tag product, :image, size: "200" %>
                     <% end %>
                   </div>
                   <div>
