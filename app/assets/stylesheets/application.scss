@@ -16,15 +16,24 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- 
+
  ul {
   list-style-type: none
  }
- 
+
  li {
   margin-right: 15px;
  }
- 
+
  .opa {
   opacity: 0.1;
  }
+
+ .mx-auto {
+  height: 400px;
+ }
+
+ .thanks {
+  line-height: 400px;
+ }
+
