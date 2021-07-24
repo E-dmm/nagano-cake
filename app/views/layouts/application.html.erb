@@ -15,7 +15,6 @@
       <h7>ようこそ、<%= current_customer.last_name %>さん！</h7>
     <% end %>
       <div class="d-flex flex-row">
-        <!--<div class="logo"><img src="/assets/nagano-cake2.png" alt="ロゴ画像"></div>-->
         <%= link_to image_tag("nagano-cake2.png"), "/" %>
         <nav class="d-flex flex-row float-right">
           <ul class="d-flex justify-content-start" >
@@ -44,9 +43,8 @@
     <main>
       <%= yield %>
     </main>
-    <footer class="text-center">
+    <footer class="fixed-bottom text-center">
       ©︎ながのCAKE
     </footer>
-
   </body>
 </html>
