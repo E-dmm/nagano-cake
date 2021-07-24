@@ -6,4 +6,8 @@ class CartProduct < ApplicationRecord
   validates :customer_id, :product_id, :quantity, presence: true
   validates :quantity, numericality: { only_integer: true }
 
+  def add_tax_price
+    (self.price * 1.1).round
+  end
+
 end
