@@ -16,7 +16,13 @@
       </tr>
       <tr>
         <th>支払い方法</th>
-        <td><%= @order.payment %></td>
+        <td>
+          <% if @order.payment == 0 %>
+            クレジットカード
+          <% else %>
+            銀行振込
+          <% end %>
+        </td>
       </tr>
       <tr>
         <th>ステータス</th>
@@ -53,12 +59,12 @@
       </tr>
     </thead>
     <tbody>
-      <%# @product.each do |product| %>
+      <%# @ordered_products.each do |ordered_product| %>
       <tr>
-        <td><%= @product.name %></td>
-        <td><%= @product.add_tax_price %></td>
-        <td><%= @ordered_product.quantity %></td>
-        <td><%= @product.add_tax_price * @ordered_product.quantity %></td>
+        <td><%= @ordered_product %></td>
+        <td><%#= @ordered_product.add_tax_price %></td>
+        <td><%#= @ordered_product.quantity %></td>
+        <td><%#= @ordered_product.add_tax_price * ordered_product.quantity %></td>
       </tr>
       <%# end %>
   </table>

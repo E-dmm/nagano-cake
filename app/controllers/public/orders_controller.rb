@@ -1,14 +1,12 @@
 class Public::OrdersController < ApplicationController
-	
 
-	def index
-		@orders = Order.all.page(params[:page]).per(5)
-	end
+  def index
+	@orders = Order.all.page(params[:page]).per(5)
+  end
 
   def show
     @customer = Customer.find(params[:id])
     @order = Order.find(params[:id])
-    @product = Product.find(params[:id])
     @ordered_product = OrderedProduct.find(params[:id])
   end
 
