@@ -1,40 +1,38 @@
 <div class = "container">
-    <h4>配送先登録/一覧</h4>
-  
-    <table class = "table table-borderless table-sm">
-      <tbody>
-         <%= form_with model:@delivery_address, url: delivery_addresses_path, local:true do |f| %>
+  <h4>配送先登録/一覧</h4>
+
+  <table class = "table table-borderless table-sm">
+    <tbody>
+    <%= form_with model:@delivery_address, url: delivery_addresses_path, local:true do |f| %>
+      <tr>
+        <th>郵便番号（ハイフンなし）</th>
+        <td><%= f.text_field :postcode %></td>
+      </tr>
         <tr>
-          <th>郵便番号（ハイフンなし）</th>
-          <td><%= f.text_field :postcode %></td>
-        </tr>
-        <tr>
-          <th>住所</th>
-          <td><%= f.text_field :address %></td>
-        </tr>
-        <tr>
-          <th>宛名</th>
-          <td><%= f.text_field :name %></td>
-          <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
-        </tr>
-  
-         <% end %>
-      </tbody>
-    </table>
-    
-  
-    <table class = "table table-bordered" >
-      <thead class = "thead-light">
-        <tr>
-          <th>郵便番号</th>
-          <th>住所</th>
-          <th>宛名</th>
-          <th></th>
-        </tr>
+        <th>住所</th>
+      <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+        <th>宛名</th>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <table class = "table table-bordered" >
+    <thead class = "thead-light">
+      <tr>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
+      </tr>
       </thead>
       <tbody>
-          <% @delivery_addresses.each do |delivery_address| %>
-           <tr>
+        <% @delivery_addresses.each do |delivery_address| %>
+          <tr>
             <td><%= delivery_address.postcode %></td>
             <td><%= delivery_address.address %></td>
             <td><%= delivery_address.name %></td>
@@ -45,7 +43,7 @@
               <% end %>
             </td>
           </tr>
-          <% end %>
-      </tbody>
-    </table>
+        <% end %>
+    </tbody>
+  </table>
 </div>
