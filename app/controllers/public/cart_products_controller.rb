@@ -4,10 +4,8 @@ class Public::CartProductsController < ApplicationController
     @cart_products = current_customer.cart_products
     @total_price = 0
     @cart_products.each do |cart_product|
-      total = cart_product.product.price * cart_product.quantity
-      tax = 1.1
-      @total_price += total * tax
-      @total_price = @total_price.floor
+      total = cart_product.product.price * cart_product.quantity * 1.1
+      @total_price += total
     end
   end
 
