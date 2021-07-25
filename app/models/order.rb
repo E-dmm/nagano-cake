@@ -2,7 +2,7 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   has_many :ordered_products
-  
+
   validates :postcode, :address, presence: true
   validates :postcode, length: {is: 7}, numericality: { only_integer: true }
 
@@ -14,7 +14,7 @@ class Order < ApplicationRecord
 
   #注文ステータスで使います
   enum order_status: {
-     "入金待ち":0, "入金確認":1, "製作中":2, "発送準備中":3, "発送済み":4
+     "入金待ち":0, "入金確認":1, "製作中":2, "発送準備中":3, "発送済":4
   }
 
   scope :created_order, -> { where(created_at: Time.zone.order) }
