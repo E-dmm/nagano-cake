@@ -31,15 +31,19 @@
       <tr>
         <th>注文ステータス</th>
         <td>
-        <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
-        <%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %>
-        <%= f.submit "更新" , class: "btn btn-outline-success" %>
+        <% if @order.order_status == 1 %>
+          <%= form.select :production_status == 1, class: "production_status-select" %>
+        <% else %>
+          <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
+            <%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %>
+            <%= f.submit "更新" , class: "btn btn-outline-success" %>
+          <% end %>
         <% end %>
         </td>
       </tr>
   </table>
 
-  <table class="table table-bordered">
+  <table class="table table-bordered" id = "space">
     <thead  class="thead-light" >
       <tr>
         <th>商品名</th>
