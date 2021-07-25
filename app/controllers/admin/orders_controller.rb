@@ -11,6 +11,9 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    if  @order.order_status == "入金確認"
+      @order.ordered_products.update(production_status:"製作待ち")
+    end
     redirect_to request.referer
   end
 
