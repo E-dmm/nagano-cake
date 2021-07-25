@@ -2,8 +2,8 @@ class Admin::OrdersController < ApplicationController
 
 
   def show
-    @customer = Customer.find(params[:id])
     @order = Order.find(params[:id])
+    @customer = @order.customer
     @product = Product.find(params[:id])
     @ordered_products = @order.ordered_products
   end
