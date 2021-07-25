@@ -1,11 +1,17 @@
-<h2>本当に退会しますか？</h2>
-
-<diV>
-    退会すると、会員登録情報や<br>
-    これまでの購入履歴が閲覧できなくなります。<br>
-    退会する場合は、「退会する」をクリックしてください。
-</diV>
-<div><%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary" %></div>
-<% if customer_signed_in? && current_customer %>
-    <%= link_to "退会", customers_withdraw_path(current_customer), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
-<% end %>
+<div class="">
+    <h2 class="unsub">本当に退会しますか？</h2>
+    
+    <diV class="unsub1">
+        退会すると、会員登録情報や<br>
+        これまでの購入履歴が閲覧できなくなります。<br>
+        退会する場合は、「退会する」をクリックしてください。
+    </diV>
+    <div class="row unsub1">
+        <div><%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary" %></div>
+        <div>
+            <% if customer_signed_in? && current_customer %>
+                <%= link_to "退会", customers_withdraw_path(current_customer), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+            <% end %>
+        </div>
+    </div>
+</div>

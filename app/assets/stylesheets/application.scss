@@ -17,9 +17,9 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
  
- ul {
-  list-style-type: none
- }
+ .userList{
+  text-decoration: none;
+}
  
  li {
   margin-right: 15px;
@@ -30,6 +30,9 @@
  }
  
  body{
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
   background-color: #d7cebb;
  }
  
@@ -38,26 +41,37 @@
   margin-bottom: 20px;
  }
  
+ html {
+  width: 100%;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+}
+ 
+ .main { 
+  flex: 1;
+ }
+ 
  footer {
-  padding: 30px;
+  padding: 20px;
   background-color: #dbedf0;
  }
  
 
 .image1 {
-  background-image: url(test1.jpg);
+  background-image: url(test6.jpg);
 }
 .image2 {
-  background-image: url(test2.jpg);
+  background-image: url(test7.jpg);
 }
 .image3 {
-  background-image: url(test3.jpg);
+  background-image: url(test8.jpg);
 }
 .image4 {
-  background-image: url(test4.jpg);
+  background-image: url(test9.jpg);
 }
 .image5 {
-  background-image: url(test5.jpg);
+  background-image: url(test10.jpg);
 }
 
 #about{

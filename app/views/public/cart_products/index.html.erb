@@ -17,7 +17,7 @@
         <tbody>
           <% @cart_products.each do |cart_product| %>
           <tr>
-            <td><%= attachment_image_tag cart_product.product, :image, :fill, 100, 100 %><%= cart_product.product.name %></td>
+            <td><%= attachment_image_tag cart_product.product, :image, size: "70x60" %><%= cart_product.product.name %></td>
             <td><%= cart_product.product.add_tax_price %></td>
             <td>
               <%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch do |f| %>

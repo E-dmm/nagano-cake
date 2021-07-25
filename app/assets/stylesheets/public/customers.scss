@@ -2,14 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-th {
+.my-th {
     width: 200px;
     border: 2px solid black;
     background-color: #dddddd;
     padding: 10px;
 }
 
-td {
+.my-td {
     width: 400px;
     border: 2px solid black;
     background-color: #ffffff;
@@ -39,4 +39,19 @@ td {
 
 span{
     margin-right: 30px;
+}
+
+
+
+.unsub {
+    padding-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unsub1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

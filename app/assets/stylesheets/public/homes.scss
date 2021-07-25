@@ -23,11 +23,23 @@
       -2px  0px 1px #003366,
        0px -2px 1px #003366;
 }
-// #container {
-// 	display: flex;
-// 	width: 100%;
-// }
 
-// .item {
-// 	width: 25%;
-// }
+.toppage {
+    width: 100%;
+}
+
+.new-img {
+    width: 25%;
+}
+
+.img{
+ margin:0 auto; 
+}
+.img :hover{
+  transform:scale(1.2,1.2);
+}
+
+.about-img {
+   text-align: center;
+   margin-bottom: 70px;
+}
