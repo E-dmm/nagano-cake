@@ -11,14 +11,24 @@
 
   <body>
     <header>
+
     <% if customer_signed_in? %>
       <h7>ようこそ、<%= current_customer.last_name %>さん！</h7><br>
     <% end %>
+
      <%= link_to image_tag("nagano-cake2.png"), "/", class:"text-left" %>
+
       <div class="d-flex flex-row float-right">
         <div class="float-right">
         <nav class="navbar navbar-expand navbar-light text-secondary">
           <ul class="navbar-nav mr-auto" >
+
+          <p>検索</p>
+          <%= form_tag(products_path, :method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :name => nil %>
+          <% end %>
+
             <% if customer_signed_in? %>
               <li class="text-secondary"><%= link_to "マイページ", customers_my_page_path, class:"text-secondary" %></li>
               <li><%= link_to "商品一覧", products_path %></li>
