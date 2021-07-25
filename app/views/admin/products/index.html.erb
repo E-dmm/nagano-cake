@@ -1,30 +1,43 @@
-<div class="row">
-  <h2>商品一覧</h2>
-  <%= link_to new_admin_product_path do %>
-    <i class="fas fa-plus"></i>
-  <% end %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td><%= link_to product.name, admin_product_path(product) %></td>
-        <td><%= product.price %></td>
-        <td><%= product.genre.name %></td>
-        <td><%= product.is_active %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= paginate @products %>
-</div>
+<div class="container">
 
+  <div class="row">
+    <div class="col-md-2">
+      <h3 class="bg-light">&nbsp;&nbsp;&nbsp;商品一覧</h3>
+    </div>
+    <div class="offset-md-8 col-md-1">
+      <%= link_to new_admin_product_path do %>
+        <i class="fas fa-plus fa-2x fa-kage" style="color: black;"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= link_to product.name, admin_product_path(product) %></td>
+          <td><%= product.price %></td>
+          <td><%= product.genre.name %></td>
+          <td><%= product.is_active %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <%= paginate @products %>
+    </div>
+  </div>
+</div>
