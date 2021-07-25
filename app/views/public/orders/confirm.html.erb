@@ -1,71 +1,96 @@
-<div class="row">
-  <h3>注文情報確認</h3>
-  <table class="table table-hover table-inverse table-bordered">
-    <thead>
-      <tr>
-        <th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% current_customer.cart_products.each do |cart_product| %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3">
+      <h3 class="bg-light">　注文情報確認</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-hover table-inverse table-bordered">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_customer.cart_products.each do |cart_product| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag( cart_product.product, :image, size: "60x50", fallback: "no_image.jpg") %>
+                <%= cart_product.product.name %>
+              </td>
+              <td>
+                <%= cart_product.product.add_tax_price.to_s(:delimited, delimiter: ',') %>
+              </td>
+              <td>
+                <%= cart_product.quantity %>
+              </td>
+              <td>
+                <%= ((cart_product.product.add_tax_price)*(cart_product.quantity)).to_s(:delimited, delimiter: ',') %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-hover table-sm table-bordered">
         <tr>
+          <th>送料</th>
+          <td>800</td>
+        </tr>
+        <tr>
+          <th>商品合計</th>
+          <td><%= @total_price %></td>
+        </tr>
+        <tr>
+          <th>請求金額</th>
+          <td><%= (@total_price + 800) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table-borderless">
+        <tr>
+          <td>支払方法</td>
+          <td><%= @order.payment %></td>
+        </tr>
+        <tr>
+          <td>お届け先</td>
           <td>
-            <%= attachment_image_tag( cart_product.product, :image, size: "60x50", fallback: "no_image.jpg") %>
-            <%= cart_product.product.name %>
-          </td>
-          <td>
-            <%= cart_product.product.add_tax_price.to_s(:delimited, delimiter: ',') %>
-          </td>
-          <td>
-            <%= cart_product.quantity %>
-          </td>
-          <td>
-            <%= ((cart_product.product.add_tax_price)*(cart_product.quantity)).to_s(:delimited, delimiter: ',') %>
+            〒<%= @order.postcode %>
+            <%= @order.address %><br>
+            <%= @order.address_name %>
           </td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <table class="table table-hover table-sm table-bordered">
-    <tr>
-      <th>送料</th>
-      <td>800</td>
-    </tr>
-    <tr>
-      <th>商品合計</th>
-      <td><%= @total_price %></td>
-    </tr>
-    <tr>
-      <th>請求金額</th>
-      <td><%= (@total_price + 800) %></td>
-    </tr>
-  </table>
-  <table class="table table-hover table-condensed table-bordered">
-    <tr>
-      <td>支払方法</td>
-      <td><%= @order.payment %></td>
-    </tr>
-    <tr>
-      <td>お届け先</td>
-      <td>
-        <%= @order.postcode %>
-        <%= @order.address %>
-        <%= @order.address_name %>
-      </td>
-    </tr>
-  </table>
-  <%= form_with model: @order, url: orders_path, local: true do |f| %>
-    <%= f.submit '注文を確定する', class: 'btn btn-sm btn-success' %>
-    <%= f.hidden_field :customer_id, :value => @order.customer.id %>
-    <%= f.hidden_field :payment, :value => @order.payment %>
-    <%= f.hidden_field :postcode, :value => @order.postcode %>
-    <%= f.hidden_field :address, :value => @order.address %>
-    <%= f.hidden_field :total_price, :value => @total_price %>
-    <%= f.hidden_field :address_name, :value => @order.address_name %>
-    <%= f.hidden_field :shipping, :value => @shipping %>
-    <%= f.hidden_field :order_status, :value => @order.order_status %>
-  <% end %>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <%= form_with model: @order, url: orders_path, local: true do |f| %>
+          <%= f.submit '注文を確定する', class: 'btn btn-sm btn-success' %>
+          <%= f.hidden_field :customer_id, :value => @order.customer.id %>
+          <%= f.hidden_field :payment, :value => @order.payment %>
+          <%= f.hidden_field :postcode, :value => @order.postcode %>
+          <%= f.hidden_field :address, :value => @order.address %>
+          <%= f.hidden_field :total_price, :value => @total_price %>
+          <%= f.hidden_field :address_name, :value => @order.address_name %>
+          <%= f.hidden_field :shipping, :value => @shipping %>
+          <%= f.hidden_field :order_status, :value => @order.order_status %>
+        <% end %>
+      </div>
+    <div class="col-md-4"></div>
+  </div>
+
 </div>

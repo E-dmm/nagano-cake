@@ -1,29 +1,47 @@
-<div class="row">
-  <h2>商品詳細</h2>
-  <%= attachment_image_tag @product, :image, size: "100x100" %>
-  <table class="table">
-    <tbody>
-      <tr>
-        <td>商品名</td>
-        <td><%= @product.name %></td>
-      </tr>
-      <tr>
-        <td>商品説明</td>
-        <td><%= @product.text %></td>
-      </tr>
-      <tr>
-        <td>ジャンル</td>
-        <td><%= @product.genre.name %></td>
-      </tr>
-      <tr>
-        <td>税込価格(税抜価格)</td>
-        <td><%= @product.add_tax_price.to_s(:delimited, delimiter: ',') %>(<%= @product.price %>)円</td>
-      </tr>
-      <tr>
-        <td>販売ステータス</td>
-        <td><%= @product.is_active %></td>
-      </tr>
-    </tbody>
-  </table>
-  <%= link_to '編集する', edit_admin_product_path(@product), class: 'btn btn-sm btn-success' %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-2">
+      <h3 class="bg-light">&nbsp;&nbsp;&nbsp;商品詳細</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= attachment_image_tag @product, :image, size: "250x250" %>
+    </div>
+    <div class="col-md-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>商品名</td>
+            <td><%= @product.name %></td>
+          </tr>
+          <tr>
+            <td>商品説明</td>
+            <td><%= @product.text %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td><%= @product.genre.name %></td>
+          </tr>
+          <tr>
+            <td>税込価格(税抜価格)</td>
+            <td><%= @product.add_tax_price.to_s(:delimited, delimiter: ',') %>(<%= @product.price %>)円</td>
+          </tr>
+          <tr>
+            <td>販売ステータス</td>
+            <td><%= @product.is_active %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+      <%= link_to '編集する', edit_admin_product_path(@product), class: 'btn btn-lg btn-success' %>
+    </div>
+  </div>
+
 </div>
