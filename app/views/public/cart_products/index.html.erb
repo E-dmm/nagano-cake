@@ -8,6 +8,7 @@
 			<% if @cart_products.present? == true %>
 				<%= link_to 'カートを空にする',  all_destroy_path, method: :delete, class: 'btn btn-md btn-danger' %>
 			<% end %>
+
 	  </div>
 	</div>
 
@@ -25,7 +26,7 @@
       <tbody>
         <% @cart_products.each do |cart_product| %>
         <tr>
-          <td><%= attachment_image_tag cart_product.product, :image, :fill, 50, 30 %><%= cart_product.product.name %></td>
+          <td><%= attachment_image_tag cart_product.product, :image, :size=> "50" %><%= cart_product.product.name %></td>
           <td valign="bottom"><%= cart_product.product.add_tax_price %></td>
           <td align="center">
             <%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch do |f| %>

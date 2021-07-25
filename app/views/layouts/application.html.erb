@@ -11,15 +11,26 @@
 
   <body>
     <header>
+
     <% if customer_signed_in? %>
-      <h7>ようこそ、<%= current_customer.last_name %>さん！</h7>
+      <h7>ようこそ、<%= current_customer.last_name %>さん！</h7><br>
     <% end %>
-      <div class="d-flex flex-row">
-        <%= link_to image_tag("nagano-cake2.png"), "/" %>
-        <nav class="d-flex flex-row float-right">
-          <ul class="d-flex justify-content-start" >
+
+     <%= link_to image_tag("nagano-cake2.png"), "/", class:"text-left" %>
+
+      <div class="d-flex flex-row float-right">
+        <div class="float-right">
+        <nav class="navbar navbar-expand navbar-light text-secondary">
+          <ul class="navbar-nav mr-auto" >
+
+          <p>検索</p>
+          <%= form_tag(products_path, :method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :name => nil %>
+          <% end %>
+
             <% if customer_signed_in? %>
-              <li><%= link_to "マイページ", customers_my_page_path(current_customer) %></li>
+              <li class="text-secondary"><%= link_to "マイページ", customers_my_page_path, class:"text-secondary" %></li>
               <li><%= link_to "商品一覧", products_path %></li>
               <li><%= link_to "カート", cart_products_path %></li>
               <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
@@ -36,14 +47,15 @@
               <li><%= link_to "ログイン", new_customer_session_path %></li>
              <% end %>
           </ul>
+          <div class="opa text-right "><%= link_to "管理者", new_admin_session_path %></div>
         </nav>
-        <div class="opa text-right "><%= link_to "管理者", new_admin_session_path %></div>
+        </div>
       </div>
     </header>
-    <main>
+    <main class="mb-5">
       <%= yield %>
     </main>
-    <footer class="fixed-bottom text-center">
+    <footer class="text-center fixed-bottom">
       ©︎ながのCAKE
     </footer>
   </body>

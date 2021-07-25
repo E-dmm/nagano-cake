@@ -18,6 +18,13 @@
         <div class="col-10">
             <h2>商品一覧（全<%= @products.count %>件）</h2>
             <div id="container">
+
+            <% if @search_products %>
+              <% render partial: 'public/products/product', collection: @search_products %>
+            <% else %>
+              <% render partial: 'public/products/product', collection: @products %>
+            <% end %>
+
         　　　<% @products.each do |product| %>
         　　　<div class="item">
             　　　   <div class="img-area">
@@ -34,7 +41,9 @@
                 </div>
         　　　<% end %>
         　　</div>
-        　　<%= paginate @products %>
+        　　<div class="float-right">
+        　　 <%= paginate @products %>
+        　　</div>
         </div>
     </div>
 </div>

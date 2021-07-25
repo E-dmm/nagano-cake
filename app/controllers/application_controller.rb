@@ -1,24 +1,5 @@
 class ApplicationController < ActionController::Base
- before_action :configure_permitted_parameters, if: :devise_controller?
-
-#   def after_sign_in_path_for(resource_or_scope)
-#     if resource_or_scope == :customer
-#         root_path
-#     # elsif resource_or_scope == :admin
-#     #     admin_homes_top_path
-#     else
-#         # root_path
-#         
-#     end
-#   end
-
-  def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope.is_a?(Admin) #is_aは要素の型を確認し、指定した型にあっていればtrue、違えばfalseを返すrubyメソッド
-        admin_homes_top_path
-    else
-        root_path
-    end
-  end
+  before_action :set_search
 
 
   def after_sign_out_path_for(resource_or_scope)
@@ -31,10 +12,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
- protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postcode, :address, :phone_number])
+  def set_search
+    #以下は検索に使うときの記述（変数やモデル名は変更してもいいですが
+    #".ransack(params[:q])"はそのままで使用します。）
+    @search = Product.ransack(params[:q])
+    #以下は検索したものを表示する時に使う記述(一番シンプルで基本の形です)
+    @search_products = @search.result
   end
 
 end
+
