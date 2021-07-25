@@ -16,33 +16,38 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- 
+
  ul {
   list-style-type: none
  }
- 
+
  li {
   margin-right: 15px;
  }
- 
+
  .opa {
   opacity: 0.1;
  }
- 
+
+ .thanks {
+  line-height: 500px;
+ }
+
+
  body{
   background-color: #d7cebb;
  }
- 
+
  header {
   background-color: #dbedf0;
   margin-bottom: 20px;
  }
- 
+
  footer {
   padding: 30px;
   background-color: #dbedf0;
  }
- 
+
 
 .image1 {
   background-image: url(test1.jpg);
@@ -63,4 +68,8 @@
 #about{
   height: 500px;
   margin-bottom: 30px;
+}
+
+.fa-kage {
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
