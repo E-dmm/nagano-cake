@@ -18,12 +18,14 @@
  @import 'font-awesome';
 
  ul {
-  list-style-type: none
+  list-style-type: none;
  }
 
  li {
   margin-right: 15px;
+  text-decoration: none;
  }
+ 
 
  .opa {
   opacity: 0.1;
@@ -85,6 +87,13 @@
 }
 
 .fa-kage {
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
+.userList {
+  text-decoration: none;
+}
+
+.headbar {
+ color: black;
+}

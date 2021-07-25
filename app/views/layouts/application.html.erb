@@ -17,10 +17,10 @@
      <%= link_to image_tag("nagano-cake2.png"), "/", class:"text-left" %>
       <div class="d-flex flex-row float-right">
         <div class="float-right">
-        <nav class="navbar navbar-expand navbar-light">
+        <nav class="navbar navbar-expand navbar-light text-secondary">
           <ul class="navbar-nav mr-auto" >
             <% if customer_signed_in? %>
-              <li><%= link_to "マイページ", customers_my_page_path, class:"userList" %></li>
+              <li class="text-secondary"><%= link_to "マイページ", customers_my_page_path, class:"text-secondary" %></li>
               <li><%= link_to "商品一覧", products_path %></li>
               <li><%= link_to "カート", cart_products_path %></li>
               <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
