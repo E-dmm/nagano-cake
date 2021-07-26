@@ -2,8 +2,8 @@
   <% if customer_signed_in? %>
     <%= form_tag(search_path, method: :get) do %>
       <%= text_field_tag 'content' %>
-      <%#= select_tag 'model', options_for_select({ "Product" => "product" }) %>
-      <%#= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
+      <%= select_tag 'model', options_for_select({ "Product" => "product" }) %>
+      <%= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
       <%= submit_tag 'Search', class: "btn-sm btn-outline-secondary fas fa-search-plus" %>
     <% end %>
 <% end %>

@@ -11,13 +11,5 @@ class Public::ProductsController < ApplicationController
     @cart_product = CartProduct.new
   end
   
-  def search
-    @results = @q.result.includes(:product)
-  end
-  
-  # def search
-  #   #Viewのformで取得したパラメータをモデルに渡す
-  #   @product = Product.search(params[:search])
-  # end
   
 end
