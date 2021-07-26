@@ -1,1 +1,6 @@
-<h1>検索結果</h1>
+<% if @model == 'product' %>
+  <h3>【商品の検索結果】検索ワード：<%= @content %></h3>
+  <%= render 'public/products/index', product: @records ,genre: @records%>
+<% else %>
+  <h3>お探しの商品はありません</h3>
+<% end %>

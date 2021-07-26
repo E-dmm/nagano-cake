@@ -41,5 +41,6 @@ devise_for :admins, controllers: {
     post 'orders/confirm' => 'orders#confirm'
     resources :orders
     resources :delivery_addresses
+    get '/search' => 'searches#search'
   end
 end

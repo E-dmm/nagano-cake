@@ -19,15 +19,10 @@
      <%= link_to image_tag("nagano-cake2.png"), "/", class:"text-left" %>
 
       <div class="d-flex flex-row float-right">
+        
         <div class="float-right">
         <nav class="navbar navbar-expand navbar-light">
           <ul class="navbar-nav mr-auto" >
-
-          <p>検索</p>
-          <%= form_tag(products_path, :method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil %>
-          <% end %>
 
             <% if customer_signed_in? %>
               <li><%= link_to "マイページ", customers_my_page_path, class:"userList" %></li>
@@ -49,6 +44,8 @@
           </ul>
           <div class="opa text-right "><%= link_to "管理者", new_admin_session_path %></div>
         </nav>
+          <!--検索窓-->
+          <%= render 'public/searches/form' %>
         </div>
       </div>
     </header>
