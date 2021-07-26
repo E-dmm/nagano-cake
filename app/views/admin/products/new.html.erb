@@ -17,11 +17,11 @@
           </tr>
           <tr>
             <td><%= f.label :商品名 %></td>
-            <td><%= f.text_field :name, include_blank: "商品名", class: 'form-control' %></td>
+            <td><%= f.text_field :name, class: 'form-control', placeholder: "商品名" %></td>
           </tr>
           <tr>
             <td><%= f.label :商品説明 %></td>
-            <td><%= f.text_area :text, class: 'form-control', include_blank: "ここに説明文を記述します" %></td>
+            <td><%= f.text_area :text, class: 'form-control', placeholder: "ここに説明文を記述します" %></td>
           </tr>
           <tr>
             <td><%= f.label :ジャンル %></td>

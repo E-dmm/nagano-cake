@@ -1,5 +1,18 @@
 class Public::CartProductsController < ApplicationController
 
+   before_action :authenticate_customer!
+
+  def create
+    @cart_product = CartProduct.new(cart_product_params)
+    if !@cart_product.quantity.present?
+      redirect_to request.referer
+    else
+    @cart_product.customer_id = current_customer.id
+    @cart_product.save
+    redirect_to cart_products_path
+    end
+  end
+
   def index
     @cart_products = current_customer.cart_products
     @total_price = 0
@@ -24,13 +37,6 @@ class Public::CartProductsController < ApplicationController
   def all_destroy
     CartProduct.destroy_all
     redirect_to root_path
-  end
-
-  def create
-    @cart_product = CartProduct.new(cart_product_params)
-    @cart_product.customer_id = current_customer.id
-    @cart_product.save
-    redirect_to cart_products_path
   end
 
   private
