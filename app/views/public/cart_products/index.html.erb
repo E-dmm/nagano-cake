@@ -51,7 +51,7 @@
       <table class="table table-bordered">
         <tr>
           <th bgcolor="silver">合計金額</th>
-          <td><%= @total_price.to_s(:delimited, delimiter: ',') %></td>
+          <td><%= @total_price.floor.to_s(:delimited, delimiter: ',') %></td>
         </tr>
       </table>
     </div>
