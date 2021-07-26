@@ -19,6 +19,7 @@ class Public::CartProductsController < ApplicationController
     @cart_products.each do |cart_product|
       total = cart_product.product.price * cart_product.quantity * 1.1
       @total_price += total
+      @total_price
     end
   end
 
