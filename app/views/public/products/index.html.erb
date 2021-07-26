@@ -4,7 +4,7 @@
         <div class="col-md-2">
             <table class="table table-bordered ml-3">
                 <thead>
-                    <th>ジャンル検索</th>
+                    <th>ジャンル一覧</th>
                 </thead>
                 <tbody>
                     <% @genres.each do |genre| %>
@@ -29,7 +29,7 @@
         　　　<div class="item">
             　　　   <div class="img-area">
             　　　     <%= link_to product_path(product.id) do %>
-                     <%= attachment_image_tag product, :image, size: "200" %>
+                     <%= attachment_image_tag product, :image, size: "250", class: "index-img" %>
                     <% end %>
                   </div>
                   <div>
