@@ -18,12 +18,14 @@
  @import 'font-awesome';
 
  ul {
-  list-style-type: none
+  list-style-type: none;
  }
 
  li {
   margin-right: 15px;
+  text-decoration: none;
  }
+ 
 
  .opa {
   opacity: 0.1;
@@ -85,7 +87,29 @@
 }
 
 .fa-kage {
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.userList {
+  text-decoration: none;
+}
+
+.headbar {
+ color: black;
+}
+
+.textlines {
+    border: 2px solid #0a0;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+}
+
+.mylog {
+  margin-bottom: 30px;
+    margin-left: 250px;
+    font-size: 25px;
+    background-color: #dddddd;
+    width: 170px;
+    padding-left: 35px;
 }
 
 #search_space{
