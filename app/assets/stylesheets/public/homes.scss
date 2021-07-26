@@ -28,12 +28,10 @@
     width: 100%;
 }
 
-.new-img {
-    width: 25%;
-}
 
 .img{
- margin-right: 80px; 
+ margin-right: 80px;
+ border: 2px solid #ffffff;
 }
 .img :hover{
   transform:scale(1.2,1.2);

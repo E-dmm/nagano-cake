@@ -7,14 +7,14 @@
           <div class="m-3">
             <div class="row ">
               <div class=" text-center mr-3"><%= f.label :email, 'メールアドレス' %></div>
-              <div class=" text-center"><%= f.email_field :email, autocomplete: "email", :size=>"60" %></div>
+              <div class=" text-center"><%= f.email_field :email, autocomplete: "email", :size=>"60", class: "textlines" %></div>
             </div>
           </div>
         
           <div class="field text-center">
             <div class="row justify-content-center">
               <div class="mr-5"><%= f.label :password,'パスワード' %></div>
-              <%= f.password_field :password, autocomplete: "current-password", :size=>"60" %>
+              <%= f.password_field :password, autocomplete: "current-password", :size=>"60", class: "textlines" %>
             </div>
           </div>
         </div>

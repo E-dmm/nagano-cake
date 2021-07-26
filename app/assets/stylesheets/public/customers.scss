@@ -44,14 +44,23 @@ span{
 
 
 .unsub {
-    padding-top: 200px;
+    padding-top: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .unsub1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    margin: 50px;
+}
+
+.no-delete {
+    margin-left: 500px;
+    margin-right: 200px;
+    text-align: center;
+} 
+
+.come {
+    text-align: center;
 }
