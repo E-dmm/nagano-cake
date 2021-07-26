@@ -19,9 +19,11 @@
      <%= link_to image_tag("nagano-cake2.png"), "/", class:"text-left" %>
 
       <div class="d-flex flex-row float-right">
+        
         <div class="float-right">
         <nav class="navbar navbar-expand navbar-light">
           <ul class="navbar-nav mr-auto" >
+
             <% if customer_signed_in? %>
               <li><i class="fas fa-user"></i><%= link_to "マイページ", customers_my_page_path, class:"text-dark" %></li>
               <li><i class="fas fa-birthday-cake"></i><%= link_to "商品一覧", products_path, class:"text-dark" %></li>
@@ -50,6 +52,8 @@
           </ul>
           <div class="opa text-right "><%= link_to "管理者", new_admin_session_path %></div>
         </nav>
+          <!--検索窓-->
+          <%= render 'public/searches/form' %>
         </div>
       </div>
     </header>
