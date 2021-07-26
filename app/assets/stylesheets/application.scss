@@ -47,18 +47,18 @@
   background-color: #dbedf0;
   margin-bottom: 20px;
  }
- 
+
  html {
   width: 100%;
   height: auto !important;
   height: 100%;
   min-height: 100%;
 }
- 
- .main { 
+
+ .main {
   flex: 1;
  }
- 
+
  footer {
   padding: 20px;
   background-color: #dbedf0;
@@ -97,3 +97,23 @@
 .headbar {
  color: black;
 }
+
+.textlines {
+    border: 2px solid #0a0;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+}
+
+.mylog {
+  margin-bottom: 30px;
+    margin-left: 250px;
+    font-size: 25px;
+    background-color: #dddddd;
+    width: 170px;
+    padding-left: 35px;
+}
+
+#search_space{
+ margin: 10px;
+ padding-right: 10px;
+}
+

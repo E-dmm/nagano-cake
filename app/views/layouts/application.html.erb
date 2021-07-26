@@ -19,36 +19,41 @@
      <%= link_to image_tag("nagano-cake2.png"), "/", class:"text-left" %>
 
       <div class="d-flex flex-row float-right">
+        
         <div class="float-right">
-        <nav class="navbar navbar-expand navbar-light text-secondary">
+        <nav class="navbar navbar-expand navbar-light">
           <ul class="navbar-nav mr-auto" >
 
-          <p>検索</p>
-          <%= form_tag(products_path, :method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil %>
-          <% end %>
-
             <% if customer_signed_in? %>
-              <li class="text-secondary"><%= link_to "マイページ", customers_my_page_path, class:"text-secondary" %></li>
-              <li><%= link_to "商品一覧", products_path %></li>
-              <li><%= link_to "カート", cart_products_path %></li>
-              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+              <li><i class="fas fa-user"></i><%= link_to "マイページ", customers_my_page_path, class:"text-dark" %></li>
+              <li><i class="fas fa-birthday-cake"></i><%= link_to "商品一覧", products_path, class:"text-dark" %></li>
+              <li><i class="fas fa-cart-plus"></i><%= link_to "カート", cart_products_path, class:"text-dark" %></li>
+              <li><i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"text-dark" %></li>
             <% elsif  admin_signed_in? %>
-              <li><%= link_to "商品一覧", admin_products_path %></li>
-              <li><%= link_to "会員一覧", admin_customers_path %></li>
-              <li><%= link_to "注文履歴一覧", admin_homes_top_path %></li>
-              <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+              <li class="mt-3"><i class="fas fa-birthday-cake"></i><%= link_to "商品一覧", admin_products_path, class:"text-dark" %></li>
+              <li class="mt-3"><i class="fas fa-users"></i><%= link_to "会員一覧", admin_customers_path, class:"text-dark" %></li>
+              <li class="mt-3"><i class="fas fa-history"></i><%= link_to "注文履歴一覧", admin_homes_top_path, class:"text-dark" %></li>
+              <li class="mt-3"><i class="fab fa-fort-awesome"></i><%= link_to "ジャンル一覧", admin_genres_path, class:"text-dark" %></li>
+              <li class="mt-3"><i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"text-dark" %></li>
              <% else %>
-              <li><%= link_to "About", homes_about_path %></li>
-              <li><%= link_to "商品一覧", products_path %></li>
-              <li><%= link_to "新規登録", new_customer_registration_path %></li>
-              <li><%= link_to "ログイン", new_customer_session_path %></li>
+              <li class="mt-3"><i class="fas fa-store-alt"></i><%= link_to "About", homes_about_path, class:"text-dark" %></li>
+              <li class="mt-3"><i class="fas fa-birthday-cake"></i><%= link_to "商品一覧", products_path, class:"text-dark" %></li>
+              <li class="mt-3"><i class="fas fa-user-plus"></i><%= link_to "新規登録", new_customer_registration_path, class:"text-dark" %></li>
+              <li class="mt-3"><i class="fas fa-sign-out-alt"></i><%= link_to "ログイン", new_customer_session_path, class:"text-dark" %></li>
              <% end %>
+             <div>
+              	<%= form_tag(products_path, :method => 'get') do %>
+                	<span class="input-group-btn">
+                		<%= text_field_tag :search %>
+                      <%= submit_tag '検索', :name => nil, class:"btn btn-success" %>
+                	</span>
+              	<% end %>
+             </div>
           </ul>
           <div class="opa text-right "><%= link_to "管理者", new_admin_session_path %></div>
         </nav>
+          <!--検索窓-->
+          <%= render 'public/searches/form' %>
         </div>
       </div>
     </header>

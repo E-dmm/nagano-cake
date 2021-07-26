@@ -4,7 +4,7 @@
         <div class="col-md-2">
             <table class="table table-bordered ml-3">
                 <thead>
-                    <th>ジャンル検索</th>
+                    <th>ジャンル一覧</th>
                 </thead>
                 <tbody>
                     <% @genres.each do |genre| %>
@@ -19,17 +19,13 @@
             <h2>商品一覧（全<%= @products.count %>件）</h2>
             <div id="container">
 
-            <% if @search_products %>
-              <% render partial: 'public/products/product', collection: @search_products %>
-            <% else %>
-              <% render partial: 'public/products/product', collection: @products %>
-            <% end %>
+  
 
         　　　<% @products.each do |product| %>
         　　　<div class="item">
             　　　   <div class="img-area">
             　　　     <%= link_to product_path(product.id) do %>
-                     <%= attachment_image_tag product, :image, size: "200" %>
+                     <%= attachment_image_tag product, :image, size: "250", class: "index-img" %>
                     <% end %>
                   </div>
                   <div>

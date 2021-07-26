@@ -12,7 +12,7 @@ class Admin::OrderDetailsController < ApplicationController
       else
         redirect_to request.referer
       end
-    redirect_to request.referer
+    # redirect_to request.referer
   end
 
 
