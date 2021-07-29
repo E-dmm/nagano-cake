@@ -9,7 +9,8 @@
                 <tbody>
                     <% @genres.each do |genre| %>
                     　　<tr>
-                          <th><%= genre.name %></th>
+                          <th><%= link_to genre.name, search_path(content: genre.id, method: "perfect", model: 'genre') %></th>
+                          <%#= link_to book.category, search_path(value: book.category, model: 'book') %>
                          </tr>
                     <% end %>
                 </tbody>
@@ -18,9 +19,6 @@
         <div class="col-10">
             <h2>商品一覧（全<%= @products.total_count %>件）</h2>
             <div id="container">
-
-  
-
         　　　<% @products.each do |product| %>
         　　　<div class="item">
             　　　   <div class="img-area">
