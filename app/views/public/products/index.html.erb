@@ -9,7 +9,7 @@
                 <tbody>
                     <% @genres.each do |genre| %>
                     　　<tr>
-                          <th><%= link_to genre.name, search_path(content: genre.id, method: "perfect", model: 'genre') %></th>
+                          <th><%= link_to genre.name, search_path(content: genre.name, model: 'genre') %></th>
                           <%#= link_to book.category, search_path(value: book.category, model: 'book') %>
                          </tr>
                     <% end %>

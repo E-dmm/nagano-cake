@@ -14,12 +14,12 @@ class Product < ApplicationRecord
 
   enum is_active: { 販売中: true, 販売停止中: false }
   
-  def self.search(search)
-      if search
-        Product.where(['content LIKE ?', "%#{search}%"])
-      else
-        Product.all
-      end
-  end
+  # def self.search(search)
+  #     if search
+  #       Product.where(['content LIKE ?', "%#{search}%"])
+  #     else
+  #       Product.all
+  #     end
+  # end
   
 end

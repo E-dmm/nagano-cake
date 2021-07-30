@@ -1,9 +1,22 @@
 <% if @model == 'product' %>
   <h3>【商品の検索結果】検索ワード：<%= @content %></h3>
   <%= render 'public/products/index', product: @records %>
-<%# elsif @model == 'genre'%>
- <!--<h3>【商品の検索結果】検索ワード：<%#= @content %></h3>-->
-  <%#= render 'public/products/index', product: @records %>
+<% elsif @model == 'genre' %>
+ <h3>【商品の検索結果】検索ワード：<%= @content %></h3>
+  <div class="container">
+    <% @records.each do |genre| %>
+        <div class="item">
+            <div class="img-area">
+                <%#= link_to product_path(genre.product.id) do %>
+                    <%#= attachment_image_tag genre.product, :image, size: "150" %>
+                <%# end %>
+            </div>
+            <div><%= genre.name %></div>
+            <div>¥<%#= product.price %></div>
+            <div><%#= product.genre.name %></div>
+        </div>
+    <% end %>
+ </div>
 <% else %>
   <h3>お探しの商品はありません</h3>
 <% end %>
